@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MUQTADIR AOHON MOZUMDER — Photographer / Videographer</title>
-<meta name="description" content="Portfolio of Muqtadir Aohon Mozumder — photographer and videographer. Event coverage, portraiture and cinematic atmospheric work.">
+<title>MUQTADIR AOHON MOZUMDER · Photographer / Videographer</title>
+<meta name="description" content="Portfolio of Muqtadir Aohon Mozumder · photographer and videographer. Event coverage, portraiture and cinematic atmospheric work.">
 <style>
 /* ============================================================
-   MUQTADIR AOHON MOZUMDER — RETRO CRT PORTFOLIO
+   MUQTADIR AOHON MOZUMDER · RETRO CRT PORTFOLIO
    Sony Trinitron / 2000s retro-futurist treatment
    ============================================================ */
 
@@ -32,10 +32,12 @@
   --cyan-rgb:255,138,61;
   --amber:#ffb300;
   --red:#ff2d3f;
+  --sm-red:#e02132;
+  --sm-blue:#7658e8;
   --txt:#c9d6e2;
   --txt-dim:#6b7d8f;
   --mono:'Share Tech Mono', ui-monospace, 'Courier New', monospace;
-  --display:'Big Shoulders Display', Impact, sans-serif;
+  --display:'Big Shoulders Display', 'Anton', Impact, sans-serif;
   --tech:'Michroma', 'Big Shoulders Display', sans-serif;
   --stat-display:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
   --gut:clamp(16px, 4vw, 56px);
@@ -191,7 +193,12 @@ section{padding:0 var(--gut)}
   transform-origin:left;
   margin-bottom:6px;
   position:relative;
-  text-shadow:0 0 26px rgba(var(--cyan-rgb),.13);
+  text-shadow:
+    3px 0 0 var(--sm-red),
+   -3px 0 0 var(--sm-blue),
+    5px 0 0 rgba(224,33,50,.35),
+   -5px 0 0 rgba(46,107,230,.35),
+    0 0 38px rgba(var(--cyan-rgb),.15);
 }
 .hero-name span{display:block}
 .hero-role{
@@ -258,8 +265,8 @@ section{padding:0 var(--gut)}
   border-bottom:1px solid var(--line);
 }
 .sec-ch{
-  font-family:var(--tech);font-size:11px;letter-spacing:.28em;
-  color:var(--amber);padding-bottom:6px;white-space:nowrap;
+  font-family:var(--stat-display);font-size:15px;font-weight:600;letter-spacing:.08em;
+  color:#a9c8d8;padding-bottom:5px;white-space:nowrap;
 }
 .sec-title{
   font-family:var(--display);font-weight:900;text-transform:uppercase;
@@ -393,7 +400,7 @@ footer{
 }
 
 +/* ============================================================
-   HANGING SPIDER-MEN — side decoration
+   HANGING SPIDER-MEN · side decoration
    ============================================================ */
 .spiders{
   position:fixed;inset:0;z-index:520;pointer-events:none;
@@ -408,7 +415,7 @@ footer{
 }
 .sm svg{display:block;width:100%;height:auto;overflow:visible}
 
-/* placements — sit in the outer page gutters */
+/* placements · sit in the outer page gutters */
 /* viewBoxes are cropped tight to the artwork, so CSS width == visible figure width */
 .sm-wave  { left:16px;  top:38px;  width:78px; animation:sway 7.5s ease-in-out infinite; }
 .sm-cam   { right:18px; top:34vh;  width:74px; animation:sway 9.2s ease-in-out infinite reverse; }
@@ -431,7 +438,7 @@ footer{
   .sm-cam {width:46px;  right:4px; top:44vh}
   .sm{opacity:.82}
 }
-/* phones — never use a negative offset here, it clips the figure itself */
+/* phones · never use a negative offset here, it clips the figure itself */
 @media(max-width:620px){
   .sm-wave{width:44px;  left:2px;  top:112px}
   .sm-cam {width:40px;  right:2px; top:52vh}
@@ -442,7 +449,7 @@ footer{
   .sm-cam {width:35px;  right:1px}
   .sm{opacity:.78}
 }
-/* short/landscape phones — nav is shallower, content is squeezed */
+/* short/landscape phones · nav is shallower, content is squeezed */
 @media(max-height:520px){
   .sm-wave{top:96px}
   .sm-cam {top:56vh}
@@ -519,7 +526,7 @@ footer{
      ============================================================ -->
 <div class="spiders" aria-hidden="true">
 
-  <!-- 01 — hanging by one hand, waving hi -->
+  <!-- 01 · hanging by one hand, waving hi -->
   <div class="sm sm-wave">
   <svg viewBox="0 0 83 246" xmlns="http://www.w3.org/2000/svg">
     <g stroke-linecap="round" fill="none">
@@ -571,7 +578,7 @@ footer{
   </svg>
   </div>
 
-  <!-- 02 — upside down with a camera -->
+  <!-- 02 · upside down with a camera -->
   <div class="sm sm-cam">
   <svg viewBox="30 0 70 314" xmlns="http://www.w3.org/2000/svg">
     <g stroke-linecap="round" fill="none">
@@ -686,7 +693,6 @@ footer{
       <div class="rule"></div>
 
       <div class="bio">
-        <p class="lead">Hi — this is your friendly neighbourhood photographer.</p>
         <p>My name's Muqtadir Aohon Mozumder, and I'm a photographer and videographer, though photography is my main field.</p>
         <p>For me, <span class="hl">photos were never meant to be perfect.</span> We humans are imperfect, so the photos we take are imperfect as well.</p>
         <p>You may have lived a long life, but in the end the only thing that reminds you of the good times you spent is <span class="hl">a well-taken photo.</span></p>
@@ -714,7 +720,7 @@ footer{
     <div class="contact-grid">
       <div>
         <div class="eyebrow">Channel Open</div>
-        <div class="contact-cta">Let’s make<br>something<br><em>worth keeping</em></div>
+        <div class="contact-cta">With great<br>photographer<br>comes <em>great photos</em></div>
       </div>
       <div class="links">
         <a class="link" href="mailto:muktadiraohon@gmail.com">
@@ -746,24 +752,24 @@ footer{
 <!-- ============ LIGHTBOX ============ -->
 <div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
   <div class="lb-bar top">
-    <span id="lbSet">—</span>
-    <span id="lbIdx" aria-live="polite">—</span>
+    <span id="lbSet">·</span>
+    <span id="lbIdx" aria-live="polite">·</span>
     <button class="lb-x" id="lbX" type="button" aria-label="Close image viewer">[ ESC · CLOSE ]</button>
   </div>
   <button class="lb-nav lb-prev" id="lbPrev" type="button" aria-label="Previous image">&#10094;</button>
   <img id="lbImg" src="" alt="">
   <button class="lb-nav lb-next" id="lbNext" type="button" aria-label="Next image">&#10095;</button>
-  <div class="lb-bar bot"><span id="lbFile">—</span></div>
+  <div class="lb-bar bot"><span id="lbFile">·</span></div>
 </div>
 
 <script>
 /* ============================================================
-   DATA — event sets. Filenames verified against disk.
+   DATA · event sets. Filenames verified against disk.
    ============================================================ */
 const SETS = [
   {
     id:'portraits',
-    ch:'CH.01',
+    ch:'Chapter 01',
     dir:'portraits',
     title:'Portraits',
     blurb:'Portraits that keep the gesture, expression, and character of the person in front of the camera.',
@@ -771,7 +777,7 @@ const SETS = [
   },
   {
     id:'icn',
-    ch:'CH.02',
+    ch:'Chapter 02',
     dir:'icn',
     title:'ICN',
     blurb:'Event coverage in motion: people, atmosphere, and the moments that disappear between poses.',
@@ -779,26 +785,26 @@ const SETS = [
   },
   {
     id:'ballers',
-    ch:'CH.03',
+    ch:'Chapter 03',
     dir:'ballers',
     title:'CCPC Ballers',
-    blurb:'Basketball event coverage. Fast glass, faster shutter — sport photography where the peak of the action is the only frame that matters.',
+    blurb:'Basketball event coverage. Fast glass, faster shutter · sport photography where the peak of the action is the only frame that matters.',
     files:['IMG_8924','IMG_8925','IMG_8926','IMG_8927','IMG_8928','IMG_8929','IMG_8930','IMG_8932']
   },
   {
     id:'booth',
-    ch:'CH.04',
+    ch:'Chapter 04',
     dir:'booth',
     title:'Co-Curricular Booth',
-    blurb:'Documenting a live booth day — people, setups, and the small in-between moments that make an event feel like it actually happened.',
+    blurb:'Documenting a live booth day · people, setups, and the small in-between moments that make an event feel like it actually happened.',
     files:['IMG_8945','IMG_8946','IMG_8947','IMG_8948','IMG_8949','IMG_8950','IMG_8951','IMG_8952','IMG_8953','IMG_8954','IMG_8955','IMG_8956','IMG_8957','IMG_8958']
   },
   {
     id:'cinematic',
-    ch:'CH.05',
+    ch:'Chapter 05',
     dir:'cinematic',
     title:'Cinematic & Atmospheric',
-    blurb:'Frames built like film stills — weather, haze, distance and colour doing the storytelling. Graded warm-cool, shot wide open.',
+    blurb:'Frames built like film stills · weather, haze, distance and colour doing the storytelling. Graded warm-cool, shot wide open.',
     files:['IMG_8813','IMG_8815','IMG_8816','IMG_8817','IMG_8821','IMG_8822','IMG_8826','IMG_8827','IMG_8841','IMG_8842','IMG_8843','IMG_8844','IMG_8976','IMG_8977','IMG_8978','IMG_8979','IMG_8980','IMG_8981','IMG_8982','IMG_8983','IMG_8984','IMG_8985','IMG_8986','IMG_8987','IMG_8989','IMG_8991','IMG_8992','IMG_8993','IMG_8994','IMG_8995']
   }
 ];
@@ -832,7 +838,7 @@ SETS.forEach((set, si) => {
 
   const meta = document.createElement('div');
   meta.className = 'sec-meta';
-  meta.textContent = String(set.files.length).padStart(2,'0') + ' FRAMES';
+  meta.textContent = String(set.files.length).padStart(2,'0') + ' frames';
 
   secHead.append(chapter, title, meta);
 
@@ -858,7 +864,7 @@ SETS.forEach((set, si) => {
     const img = document.createElement('img');
     img.setAttribute('loading','lazy');
     img.setAttribute('decoding','async');
-    img.alt = set.title + ' — frame ' + (i+1);
+    img.alt = set.title + ' · frame ' + (i+1);
     img.src = thumbPath(set, f);
     /* graceful fallback: optimised thumb -> original file */
     img.dataset.fallback = assetPath(set, f);
@@ -900,7 +906,7 @@ function show(s, i){
   cs = s; ci = i;
   const f = set.files[i];
   lbImg.src = assetPath(set, f);
-  lbImg.alt = set.title + ' — frame ' + (i+1);
+  lbImg.alt = set.title + ' · frame ' + (i+1);
   lbSet.textContent = set.ch + ' · ' + set.title;
   lbIdx.textContent = String(i+1).padStart(3,'0') + ' / ' + String(n).padStart(3,'0');
   lbFile.textContent = fileLabel(set, f);
