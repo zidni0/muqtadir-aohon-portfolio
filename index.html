@@ -30,7 +30,8 @@
   --cyan:#ff8a3d;
   --cyan-dim:#a65328;
   --cyan-rgb:255,138,61;
-  --amber:#ffb300;
+  --accent:#67d7ff;
+  --accent-rgb:103,215,255;
   --red:#ff2d3f;
   --sm-red:#e02132;
   --sm-blue:#7658e8;
@@ -164,7 +165,7 @@ section{padding:0 var(--gut)}
   color:var(--cyan);text-shadow:0 0 8px rgba(var(--cyan-rgb),.6);
 }
 .osd.tl{top:18px;left:20px}
-.osd.tr{top:18px;right:20px;color:var(--amber);text-shadow:0 0 8px rgba(255,179,0,.5)}
+.osd.tr{top:18px;right:20px;color:var(--accent);text-shadow:0 0 8px rgba(var(--accent-rgb),.5)}
 .osd.bl{bottom:18px;left:20px;color:var(--txt-dim)}
 
 .portrait-meta{
@@ -176,8 +177,8 @@ section{padding:0 var(--gut)}
 
 /* ---------- HERO TYPE ---------- */
 .eyebrow{
-  display:inline-block;font-size:10px;letter-spacing:.34em;color:var(--amber);
-  border:1px solid rgba(255,179,0,.35);border-radius:6px;padding:5px 12px;margin-bottom:20px;
+  display:inline-block;font-size:10px;letter-spacing:.34em;color:var(--accent);
+  border:1px solid rgba(var(--accent-rgb),.35);border-radius:6px;padding:5px 12px;margin-bottom:20px;
   text-transform:uppercase;
 }
 .hero-name{
@@ -227,7 +228,7 @@ section{padding:0 var(--gut)}
   max-width:26ch;
 }
 .bio p+p{margin-top:.7em}
-.bio .hl{color:var(--amber);text-shadow:0 0 14px rgba(255,179,0,.2)}
+.bio .hl{color:var(--accent);text-shadow:0 0 14px rgba(var(--accent-rgb),.2)}
 .bio .lead{
   font-weight:900;
   font-size:1.22em;
@@ -297,7 +298,7 @@ section{padding:0 var(--gut)}
   transition:border-color .25s ease, transform .25s ease;
 }
 .cell:hover{border-color:var(--cyan);transform:translateY(-3px)}
-.cell:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.cell:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .cell img{
   width:100%;height:auto;display:block;
   filter:contrast(1.04) saturate(.95) brightness(.96);
@@ -491,7 +492,7 @@ footer{
 .sm-lens{animation:lens 5.6s ease-out infinite}
 @keyframes lens{
   0%,86%{fill:#0d1016}
-  89%{fill:#ffe9a8}
+  89%{fill:#b8efff}
   100%{fill:#0d1016}
 }
 
@@ -628,15 +629,15 @@ footer{
         <circle cx="65" cy="288" r="9" fill="none" stroke="#3d5570" stroke-width="1.2"/>
         <circle class="sm-lens" cx="65" cy="288" r="6.4" fill="#0d1016"/>
         <circle cx="62" cy="285" r="2" fill="#ff8a3d" opacity=".6"/>
-        <rect x="77" y="278" width="6" height="4" rx="1.2" fill="#ffb300"/>
+        <rect x="77" y="278" width="6" height="4" rx="1.2" fill="#67d7ff"/>
         <circle cx="48" cy="280" r="2" fill="#e02132"/>
       </g>
       <!-- flash burst -->
       <g class="sm-flash" stroke="none">
-        <circle cx="65" cy="288" r="17" fill="#fff6d8" opacity=".3"/>
+        <circle cx="65" cy="288" r="17" fill="#e0f8ff" opacity=".3"/>
         <path d="M65 266 L68.5 283 L65 288 L61.5 283 Z M65 310 L61.5 293 L65 288 L68.5 293 Z
                  M43 288 L60 284.5 L65 288 L60 291.5 Z M87 288 L70 291.5 L65 288 L70 284.5 Z"
-              fill="#ffe9a8" opacity=".85"/>
+              fill="#b8efff" opacity=".85"/>
       </g>
     </g>
   </svg>
@@ -737,7 +738,7 @@ footer{
           <span class="k">WhatsApp</span><span class="v">0139642866</span>
         </a>
         <div class="link">
-          <span class="k">Status</span><span class="v" style="color:var(--amber)">AVAILABLE FOR BOOKING</span>
+          <span class="k">Status</span><span class="v" style="color:var(--accent)">AVAILABLE FOR BOOKING</span>
         </div>
       </div>
     </div>
