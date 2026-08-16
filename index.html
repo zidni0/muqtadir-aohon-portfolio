@@ -404,88 +404,107 @@ footer{
   text-transform:uppercase;
 }
 
-/* ============================================================
-   SPIDER-MEN · hand-drawn SVG side decoration
++/* ============================================================
+   HANGING SPIDER-MEN · side decoration
    ============================================================ */
 .spiders{
   position:fixed;inset:0;z-index:520;pointer-events:none;
-  display:block;isolation:isolate;
+  display:block;
 }
 
 .sm{
   position:fixed;
-  z-index:2;filter:drop-shadow(0 16px 26px rgba(0,0,0,.78));
-  opacity:.97;will-change:transform;
+  transform-origin:50% 0%;
+  filter:drop-shadow(0 14px 26px rgba(0,0,0,.75));
+  opacity:.94;
 }
 .sm svg{display:block;width:100%;height:auto;overflow:visible}
 
-/* The web lives in viewport coordinates, so it remains attached to the moving hand. */
-#webRig{position:fixed;inset:0;z-index:1;width:100%;height:100%;overflow:visible;opacity:0;transition:opacity .24s ease}
-.spiders.is-web-armed #webRig{opacity:1}
-#webMain,#webEcho{fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-#webMain{stroke:#e8f9ff;stroke-width:1.65;filter:drop-shadow(0 0 4px rgba(103,215,255,.5))}
-#webEcho{stroke:rgba(103,215,255,.82);stroke-width:.72;stroke-dasharray:3 6}
-#webNode{fill:#e8f9ff;filter:drop-shadow(0 0 5px rgba(103,215,255,.75))}
-
-/* The left figure is a larger black-suit Spider-Man. */
-.sm-symbiote{left:12px;top:28px;width:126px;animation:symbiote-float 6.8s cubic-bezier(.45,.05,.55,.95) infinite}
-.sm-symbiote .sym-leg-a{transform-box:fill-box;transform-origin:50% 0%;animation:symbiote-leg-left 3.4s ease-in-out infinite}
-.sm-symbiote .sym-leg-b{transform-box:fill-box;transform-origin:50% 0%;animation:symbiote-leg-right 3.8s ease-in-out infinite}
-.sm-symbiote .sym-head{transform-box:fill-box;transform-origin:center;animation:symbiote-look 5.6s ease-in-out infinite}
-
-/* The right figure is the web-slinger. JavaScript feeds --web-pull and --web-hand. */
-.sm-webslinger{
-  right:12px;top:22vh;width:132px;
-  --web-pull:0;--web-hand:0deg;
-  transform:translate3d(0,calc(var(--web-pull) * -24px),0) rotate(calc(-3deg + var(--web-pull) * -4deg));
-  transform-origin:78% 48%;
-  transition:filter .18s ease;
-}
-.sm-webslinger.is-pulling{filter:drop-shadow(0 18px 30px rgba(0,0,0,.8)) drop-shadow(0 0 12px rgba(103,215,255,.18))}
-.sm-web-arm{transform-box:fill-box;transform-origin:100% 46%;transform:rotate(var(--web-hand));transition:transform .1s cubic-bezier(.16,1,.3,1)}
-.sm-webslinger .sm-back-leg{transform-box:fill-box;transform-origin:45% 10%;animation:webslinger-kick 2.8s ease-in-out infinite}
-.sm-webslinger .sm-eye-glint{animation:eye-glint 4.2s ease-in-out infinite}
+/* placements · sit in the outer page gutters */
+/* viewBoxes are cropped tight to the artwork, so CSS width == visible figure width */
+.sm-wave  { left:16px;  top:38px;  width:78px; animation:sway 7.5s ease-in-out infinite; }
+.sm-cam   { right:18px; top:34vh;  width:74px; animation:sway 9.2s ease-in-out infinite reverse; }
 
 /* --- responsive: shrink and tuck toward the edges as the screen narrows --- */
 @media(max-width:1660px){
-  .sm-symbiote{width:112px}
-  .sm-webslinger{width:116px}
+  .sm-wave{width:66px}
+  .sm-cam {width:62px}
 }
 @media(max-width:1240px){
-  .sm-symbiote{width:96px;left:8px}
-  .sm-webslinger{width:100px;right:8px}
+  .sm-wave{width:58px;  left:10px}
+  .sm-cam {width:54px;  right:10px}
   .sm{opacity:.85}
 }
+/* NOTE: the status bar + nav occupy the top ~80-110px and sit at z-index 590/600,
+   which is ABOVE .spiders (520). On narrow screens the nav wraps and gets taller,
+   so the upper spider must hang below it or it gets covered. */
 @media(max-width:900px){
-  .sm-symbiote{width:80px;left:3px;top:112px}
-  .sm-webslinger{width:82px;right:3px;top:38vh}
+  .sm-wave{width:50px;  left:4px;  top:118px}
+  .sm-cam {width:46px;  right:4px; top:44vh}
   .sm{opacity:.82}
 }
+/* phones · never use a negative offset here, it clips the figure itself */
 @media(max-width:620px){
-  .sm-symbiote{width:66px;left:1px;top:108px}
-  .sm-webslinger{width:68px;right:1px;top:43vh}
+  .sm-wave{width:44px;  left:2px;  top:112px}
+  .sm-cam {width:40px;  right:2px; top:52vh}
   .sm{opacity:.8; filter:drop-shadow(0 6px 12px rgba(0,0,0,.85))}
 }
 @media(max-width:380px){
-  .sm-symbiote{width:58px}
-  .sm-webslinger{width:60px}
+  .sm-wave{width:38px;  left:1px}
+  .sm-cam {width:35px;  right:1px}
   .sm{opacity:.78}
 }
+/* short/landscape phones · nav is shallower, content is squeezed */
 @media(max-height:520px){
-  .sm-symbiote{top:88px}
-  .sm-webslinger{top:30vh}
+  .sm-wave{top:96px}
+  .sm-cam {top:56vh}
 }
 
-@keyframes symbiote-float{0%,100%{transform:translate3d(0,0,0) rotate(-2deg)}50%{transform:translate3d(0,9px,0) rotate(2.4deg)}}
-@keyframes symbiote-leg-left{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(5deg)}}
-@keyframes symbiote-leg-right{0%,100%{transform:rotate(4deg)}50%{transform:rotate(-4deg)}}
-@keyframes symbiote-look{0%,100%{transform:rotate(-1deg)}46%,58%{transform:rotate(3deg)}}
-@keyframes webslinger-kick{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(5deg)}}
-@keyframes eye-glint{0%,78%,100%{opacity:.18}84%{opacity:1}}
+@keyframes sway{
+  0%,100%{transform:rotate(-3.2deg)}
+  50%    {transform:rotate(3.2deg)}
+}
+
+/* waving hand */
+.sm-arm-wave{
+  transform-box:view-box;
+  transform-origin:40px 113px;
+  animation:wave 2.4s ease-in-out infinite;
+}
+@keyframes wave{
+  0%,18%,100%{transform:rotate(0deg)}
+  30%{transform:rotate(-19deg)}
+  42%{transform:rotate(9deg)}
+  54%{transform:rotate(-16deg)}
+  66%{transform:rotate(6deg)}
+  78%{transform:rotate(-9deg)}
+}
+
+/* camera flash */
+.sm-flash{opacity:0;animation:flash 5.6s ease-out infinite}
+@keyframes flash{
+  0%,86%{opacity:0}
+  88%{opacity:1}
+  93%{opacity:.25}
+  95%{opacity:.9}
+  100%{opacity:0}
+}
+.sm-lens{animation:lens 5.6s ease-out infinite}
+@keyframes lens{
+  0%,86%{fill:#0d1016}
+  89%{fill:#b8efff}
+  100%{fill:#0d1016}
+}
+
+/* dangling legs */
+.sm-legs-a{transform-box:view-box;transform-origin:56px 162px;animation:dangle 5.6s ease-in-out infinite}
+@keyframes dangle{
+  0%,100%{transform:rotate(-4deg)}
+  50%    {transform:rotate(4deg)}
+}
 
 @media (prefers-reduced-motion:reduce){
-  .sm,.sm *{animation:none!important;transition:none!important}
-  #webRig{display:none!important}
+  .sm,.sm-arm-wave,.sm-flash,.sm-lens,.sm-legs-a{animation:none!important}
 }
 
 /* ---------- REVEAL ---------- */
@@ -507,106 +526,123 @@ footer{
 <!-- One restrained CRT layer keeps the visual signature on the image archive. -->
 <div class="crt-scan"></div>
 
-<!-- ============================================================
-     SPIDER-MEN · original inline vectors, no external asset request
++<!-- ============================================================
+     HANGING SPIDER-MEN
      ============================================================ -->
 <div class="spiders" aria-hidden="true">
-  <svg id="webRig" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path id="webMain"/>
-    <path id="webEcho"/>
-    <circle id="webNode" r="2.8"/>
+
+  <!-- 01 · hanging by one hand, waving hi -->
+  <div class="sm sm-wave">
+  <svg viewBox="0 0 83 246" xmlns="http://www.w3.org/2000/svg">
+    <g stroke-linecap="round" fill="none">
+      <!-- web strand -->
+      <path d="M65 0 V56" stroke="#dbe9f5" stroke-width="1.7" opacity=".55"/>
+      <path d="M59 16 L71 22 M71 32 L59 38 M59 42 L71 48" stroke="#dbe9f5" stroke-width=".9" opacity=".3"/>
+
+      <!-- gripping arm -->
+      <path d="M65 58 L74 84" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M74 84 L72 110" stroke="#e02132" stroke-width="10"/>
+
+      <!-- waving arm -->
+      <g class="sm-arm-wave">
+        <path d="M40 113 L20 100" stroke="#e02132" stroke-width="10"/>
+        <path d="M20 100 L10 78" stroke="#2e6be6" stroke-width="9"/>
+        <circle cx="9" cy="75" r="6.5" fill="#2e6be6" stroke="none"/>
+      </g>
+
+      <!-- legs -->
+      <g class="sm-legs-a">
+        <path d="M48 162 L42 200" stroke="#e02132" stroke-width="10"/>
+        <path d="M42 200 L46 232" stroke="#2e6be6" stroke-width="9"/>
+        <path d="M64 162 L70 202" stroke="#e02132" stroke-width="10"/>
+        <path d="M70 202 L64 234" stroke="#2e6be6" stroke-width="9"/>
+        <circle cx="46" cy="234" r="5.5" fill="#2e6be6" stroke="none"/>
+        <circle cx="64" cy="236" r="5.5" fill="#2e6be6" stroke="none"/>
+      </g>
+
+      <!-- torso -->
+      <path d="M38 112 C34 132, 38 152, 46 164 L66 164 C74 152, 76 132, 72 112 Z" fill="#e02132" stroke="none"/>
+      <path d="M55 114 V162 M39 126 C55 134, 71 126, 71 126 M38 142 C55 150, 73 142, 73 142 M40 158 C55 166, 70 158, 70 158"
+            stroke="#7d0d18" stroke-width="1.1" opacity=".9"/>
+      <!-- spider emblem -->
+      <g stroke="#0d1016" stroke-width="1.5">
+        <path d="M55 130 V144 M55 134 L48 128 M55 134 L62 128 M55 139 L47 143 M55 139 L63 143"/>
+        <circle cx="55" cy="136" r="2.2" fill="#0d1016"/>
+      </g>
+
+      <!-- hand grip -->
+      <circle cx="65" cy="57" r="6.8" fill="#2e6be6" stroke="none"/>
+
+      <!-- head -->
+      <ellipse cx="48" cy="92" rx="15.5" ry="14" fill="#e02132" stroke="none"/>
+      <path d="M48 78 V106 M34 90 H62 M37 82 C48 88, 59 82, 59 82 M37 101 C48 95, 59 101, 59 101"
+            stroke="#7d0d18" stroke-width=".9" opacity=".8"/>
+      <ellipse cx="41" cy="90" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(-17 41 90)"/>
+      <ellipse cx="56" cy="90" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(17 56 90)"/>
+    </g>
   </svg>
-
-  <!-- Black symbiote suit · a larger hanging silhouette on the left. -->
-  <div class="sm sm-symbiote">
-    <svg viewBox="0 0 180 350" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="symSuit" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#344b61"/><stop offset=".38" stop-color="#111a25"/><stop offset="1" stop-color="#03070c"/></linearGradient>
-        <linearGradient id="symBlue" x1="0" x2="1"><stop stop-color="#b9f2ff"/><stop offset="1" stop-color="#5ba8c7"/></linearGradient>
-      </defs>
-      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M92 0V49" stroke="#dff8ff" stroke-width="2" opacity=".72"/>
-        <path d="M82 14L102 24M102 34L82 44" stroke="#94c5d8" stroke-width="1" opacity=".5"/>
-        <path d="M92 49L111 78L106 110" stroke="url(#symSuit)" stroke-width="18"/>
-        <path d="M92 49L111 78L106 110" stroke="#5b7891" stroke-width="1.4" opacity=".7"/>
-        <circle cx="92" cy="49" r="8" fill="#142434" stroke="#a7e9ff" stroke-width="1"/>
-
-        <g class="sym-head">
-          <path d="M72 91C73 72 85 62 101 64C119 67 126 83 122 101C118 119 107 130 91 127C77 125 69 111 72 91Z" fill="url(#symSuit)" stroke="#648198" stroke-width="1.2"/>
-          <path d="M96 66V125M76 91H121M79 78C91 87 108 84 118 76M76 107C90 99 109 102 120 112" stroke="#466074" stroke-width="1" opacity=".82"/>
-          <path d="M80 88C85 78 91 77 94 82L91 98C86 100 82 96 80 88Z" fill="url(#symBlue)" stroke="#dff8ff" stroke-width="1.1"/>
-          <path d="M100 82C106 75 114 78 117 88C115 97 110 101 104 98L100 82Z" fill="url(#symBlue)" stroke="#dff8ff" stroke-width="1.1"/>
-        </g>
-
-        <path d="M82 123C69 144 72 183 87 202C98 211 118 209 128 197C136 177 136 146 121 121C111 130 94 132 82 123Z" fill="url(#symSuit)" stroke="#608099" stroke-width="1.3"/>
-        <path d="M88 133C94 150 95 180 89 198M119 131C111 153 111 181 121 195" stroke="#557289" stroke-width="1" opacity=".72"/>
-
-        <!-- white symbiote chest emblem -->
-        <g stroke="#dff8ff" stroke-width="3.1">
-          <path d="M103 143V181M103 151L88 141M103 151L118 139M103 161L84 158M103 161L123 157M103 171L88 181M103 171L119 184"/>
-          <path d="M101 146C96 151 97 166 103 172C109 166 110 151 105 146Z" fill="#dff8ff" stroke="none"/>
-        </g>
-
-        <path d="M81 131L52 148L28 131" stroke="url(#symSuit)" stroke-width="17"/>
-        <path d="M28 131L18 111" stroke="url(#symSuit)" stroke-width="15"/>
-        <path d="M122 132L147 154L164 140" stroke="url(#symSuit)" stroke-width="17"/>
-        <path d="M164 140L169 121" stroke="url(#symSuit)" stroke-width="15"/>
-        <path d="M18 111L13 103M18 111L25 102M169 121L162 113M169 121L175 111" stroke="#b9f2ff" stroke-width="1.5"/>
-
-        <g class="sym-leg-a">
-          <path d="M91 199L67 238L49 292" stroke="url(#symSuit)" stroke-width="20"/>
-          <path d="M49 292L29 308" stroke="url(#symSuit)" stroke-width="16"/>
-          <path d="M29 308L17 306" stroke="#6a91a9" stroke-width="3"/>
-        </g>
-        <g class="sym-leg-b">
-          <path d="M119 198L138 240L132 295" stroke="url(#symSuit)" stroke-width="20"/>
-          <path d="M132 295L151 311" stroke="url(#symSuit)" stroke-width="16"/>
-          <path d="M151 311L165 309" stroke="#6a91a9" stroke-width="3"/>
-        </g>
-      </g>
-    </svg>
   </div>
 
-  <!-- Red and blue Spider-Man · his firing hand is the live web origin. -->
-  <div class="sm sm-webslinger">
-    <svg viewBox="0 0 200 330" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="spideyRed" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#ff4454"/><stop offset=".52" stop-color="#e02132"/><stop offset="1" stop-color="#8f1020"/></linearGradient>
-        <linearGradient id="spideyBlue" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#5595ff"/><stop offset="1" stop-color="#174cba"/></linearGradient>
-      </defs>
-      <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <g class="sm-back-leg">
-          <path d="M131 233L166 260L180 307" stroke="url(#spideyBlue)" stroke-width="22"/>
-          <path d="M180 307L166 319" stroke="url(#spideyBlue)" stroke-width="16"/>
-        </g>
-        <path d="M108 230L87 269L60 303" stroke="url(#spideyBlue)" stroke-width="22"/>
-        <path d="M60 303L43 308" stroke="url(#spideyBlue)" stroke-width="16"/>
+  <!-- 02 · upside down with a camera -->
+  <div class="sm sm-cam">
+  <svg viewBox="30 0 70 314" xmlns="http://www.w3.org/2000/svg">
+    <g stroke-linecap="round" fill="none">
+      <!-- web strand -->
+      <path d="M65 0 V88" stroke="#dbe9f5" stroke-width="1.7" opacity=".55"/>
+      <path d="M59 22 L71 28 M71 44 L59 50 M59 62 L71 68" stroke="#dbe9f5" stroke-width=".9" opacity=".3"/>
+      <circle cx="65" cy="89" r="6.5" fill="#2e6be6" stroke="none"/>
 
-        <path d="M103 135C93 157 95 207 109 234C124 245 148 242 160 229C168 199 163 159 148 137C135 145 116 146 103 135Z" fill="url(#spideyRed)" stroke="#ff6876" stroke-width="1.1"/>
-        <path d="M104 174H161M99 196H165M104 219H161M132 142V235" stroke="#781220" stroke-width="1.2" opacity=".88"/>
-        <g stroke="#101723" stroke-width="2.2">
-          <path d="M133 169V201M133 176L119 167M133 176L147 167M133 187L116 188M133 187L151 188M133 196L120 207M133 196L147 207"/>
-          <path d="M130 173C126 179 127 193 133 199C139 193 140 179 136 173Z" fill="#101723" stroke="none"/>
-        </g>
+      <!-- legs up to the web -->
+      <path d="M65 92 L50 130" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M50 130 L52 172" stroke="#e02132" stroke-width="10"/>
+      <path d="M65 92 L80 130" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M80 130 L78 172" stroke="#e02132" stroke-width="10"/>
 
-        <path d="M146 149L174 170L184 202" stroke="url(#spideyBlue)" stroke-width="19"/>
-        <path d="M184 202L173 221" stroke="url(#spideyRed)" stroke-width="16"/>
+      <!-- arms bringing camera to eye -->
+      <path d="M54 234 L38 260" stroke="#e02132" stroke-width="10"/>
+      <path d="M38 260 L48 286" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M76 234 L92 260" stroke="#e02132" stroke-width="10"/>
+      <path d="M92 260 L82 286" stroke="#2e6be6" stroke-width="9"/>
 
-        <g class="sm-web-arm">
-          <path d="M107 151L76 159L45 135" stroke="url(#spideyRed)" stroke-width="20"/>
-          <path d="M45 135L29 128" stroke="url(#spideyBlue)" stroke-width="17"/>
-          <circle id="webOrigin" cx="28" cy="128" r="9" fill="#245dcb" stroke="#9fdcff" stroke-width="1.2"/>
-          <path d="M20 125L10 119M20 128L9 128M20 131L10 138" stroke="#dff8ff" stroke-width="1.5"/>
-        </g>
-
-        <path d="M105 124C104 101 116 81 136 80C156 81 168 100 166 122C164 144 151 156 134 154C116 152 105 143 105 124Z" fill="url(#spideyRed)" stroke="#ff6876" stroke-width="1.3"/>
-        <path d="M135 82V152M107 117H165M112 98C127 108 146 106 159 95M108 132C124 123 148 125 163 138" stroke="#79101e" stroke-width="1.2" opacity=".9"/>
-        <path d="M113 111C120 97 128 96 132 103L127 126C120 128 115 122 113 111Z" fill="#f4fdff" stroke="#121925" stroke-width="2"/>
-        <path d="M140 103C147 96 157 99 162 112C160 122 154 128 146 126L140 103Z" fill="#f4fdff" stroke="#121925" stroke-width="2"/>
-        <path class="sm-eye-glint" d="M119 106L126 103M148 106L156 109" stroke="#b9f2ff" stroke-width="1.8"/>
+      <!-- torso -->
+      <path d="M52 172 C46 194, 48 218, 56 234 L74 234 C82 218, 84 194, 78 172 Z" fill="#e02132" stroke="none"/>
+      <path d="M65 174 V232 M53 186 C65 194, 77 186, 77 186 M51 204 C65 212, 79 204, 79 204 M54 222 C65 230, 76 222, 76 222"
+            stroke="#7d0d18" stroke-width="1.1" opacity=".9"/>
+      <g stroke="#0d1016" stroke-width="1.5">
+        <path d="M65 194 V208 M65 198 L58 192 M65 198 L72 192 M65 203 L57 207 M65 203 L73 207"/>
+        <circle cx="65" cy="200" r="2.2" fill="#0d1016"/>
       </g>
-    </svg>
+
+      <!-- head (inverted) -->
+      <ellipse cx="65" cy="254" rx="15.5" ry="14" fill="#e02132" stroke="none"/>
+      <path d="M65 240 V268 M51 252 H79 M54 261 C65 255, 76 261, 76 261"
+            stroke="#7d0d18" stroke-width=".9" opacity=".8"/>
+      <ellipse cx="58" cy="256" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(17 58 256)"/>
+      <ellipse cx="73" cy="256" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(-17 73 256)"/>
+
+      <!-- camera -->
+      <g stroke="none">
+        <rect x="56" y="268" width="18" height="7" rx="2" fill="#0d1016"/>
+        <rect x="43" y="274" width="44" height="28" rx="3.5" fill="#171b24"/>
+        <rect x="44" y="275" width="42" height="26" rx="3" fill="none" stroke="#33485e" stroke-width="1.3"/>
+        <circle cx="65" cy="288" r="11" fill="#0a0d12"/>
+        <circle cx="65" cy="288" r="9" fill="none" stroke="#3d5570" stroke-width="1.2"/>
+        <circle class="sm-lens" cx="65" cy="288" r="6.4" fill="#0d1016"/>
+        <circle cx="62" cy="285" r="2" fill="#ff8a3d" opacity=".6"/>
+        <rect x="77" y="278" width="6" height="4" rx="1.2" fill="#67d7ff"/>
+        <circle cx="48" cy="280" r="2" fill="#e02132"/>
+      </g>
+      <!-- flash burst -->
+      <g class="sm-flash" stroke="none">
+        <circle cx="65" cy="288" r="17" fill="#e0f8ff" opacity=".3"/>
+        <path d="M65 266 L68.5 283 L65 288 L61.5 283 Z M65 310 L61.5 293 L65 288 L68.5 293 Z
+                 M43 288 L60 284.5 L65 288 L60 291.5 Z M87 288 L70 291.5 L65 288 L70 284.5 Z"
+              fill="#b8efff" opacity=".85"/>
+      </g>
+    </g>
+  </svg>
   </div>
+
 </div>
 
 <!-- Spider-Man remains as the portfolio's playful signature decoration. -->
@@ -929,87 +965,6 @@ lb.addEventListener('keydown', e => {
     if(a < alts.length){ pi.src = alts[a]; }
     else { ps.classList.add('err'); }
   });
-})();
-
-/* ---------- SPIDER-MAN WEB · scroll-driven, smoothly interpolated ---------- */
-(function(){
-  const scene = document.querySelector('.spiders');
-  const shooter = document.querySelector('.sm-webslinger');
-  const origin = document.getElementById('webOrigin');
-  const rig = document.getElementById('webRig');
-  const main = document.getElementById('webMain');
-  const echo = document.getElementById('webEcho');
-  const node = document.getElementById('webNode');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if(!scene || !shooter || !origin || !rig || !main || !echo || !node || reduced.matches) return;
-
-  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-  let target = 0;
-  let current = 0;
-  let armed = false;
-  let direction = 1;
-  let lastScroll = window.scrollY;
-  let frame = 0;
-
-  function schedule(){
-    if(!frame) frame = requestAnimationFrame(render);
-  }
-
-  function drawPath(path, d, amount, opacity){
-    path.setAttribute('d', d);
-    const length = path.getTotalLength() || 1;
-    path.style.strokeDasharray = String(length);
-    path.style.strokeDashoffset = String(length * (1 - amount));
-    path.style.opacity = String(opacity);
-  }
-
-  function render(){
-    frame = 0;
-    current += (target - current) * .16;
-    if(Math.abs(target - current) < .001) current = target;
-
-    const draw = armed ? .14 + (.86 * current) : 0;
-    const rect = origin.getBoundingClientRect();
-    const width = Math.max(1, window.innerWidth);
-    const height = Math.max(1, window.innerHeight);
-    const startX = rect.left + (rect.width / 2);
-    const startY = rect.top + (rect.height / 2);
-    const endX = Math.max(18, startX - Math.max(0, startX - (width * .08)) * draw);
-    const endY = startY + height * (.035 + .28 * draw);
-    const span = Math.max(16, startX - endX);
-    const bend = Math.min(height * .19, 18 + span * .28);
-    const web = `M ${startX.toFixed(1)} ${startY.toFixed(1)} C ${(startX - span * .26).toFixed(1)} ${(startY - bend).toFixed(1)}, ${(endX + span * .32).toFixed(1)} ${(endY + bend * .4).toFixed(1)}, ${endX.toFixed(1)} ${endY.toFixed(1)}`;
-    const echoWeb = `M ${startX.toFixed(1)} ${(startY + 3).toFixed(1)} C ${(startX - span * .25).toFixed(1)} ${(startY - bend + 6).toFixed(1)}, ${(endX + span * .28).toFixed(1)} ${(endY + bend * .42 + 3).toFixed(1)}, ${endX.toFixed(1)} ${(endY + 4).toFixed(1)}`;
-
-    rig.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    drawPath(main, web, draw, armed ? .9 : 0);
-    drawPath(echo, echoWeb, draw, armed ? .72 : 0);
-    node.setAttribute('cx', endX.toFixed(1));
-    node.setAttribute('cy', endY.toFixed(1));
-    node.style.opacity = String(armed ? clamp(draw * 1.5, 0, 1) : 0);
-
-    scene.classList.toggle('is-web-armed', armed);
-    shooter.classList.toggle('is-pulling', armed && direction > 0);
-    shooter.classList.toggle('is-pushing', armed && direction < 0);
-    shooter.style.setProperty('--web-pull', current.toFixed(3));
-    shooter.style.setProperty('--web-hand', `${(direction > 0 ? -5 - current * 18 : 8 - current * 5).toFixed(2)}deg`);
-
-    if(Math.abs(target - current) >= .001) schedule();
-  }
-
-  function onScroll(){
-    const scroll = Math.max(0, window.scrollY);
-    if(scroll > 12) armed = true;
-    const delta = scroll - lastScroll;
-    if(Math.abs(delta) > .25) direction = Math.sign(delta);
-    lastScroll = scroll;
-    target = clamp(scroll / Math.max(1, window.innerHeight * .92), 0, 1);
-    schedule();
-  }
-
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', schedule, {passive:true});
-  onScroll();
 })();
 
 /* ---------- REVEAL ON SCROLL ---------- */
