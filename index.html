@@ -423,7 +423,7 @@ footer{
 /* placements · sit in the outer page gutters */
 /* viewBoxes are cropped tight to the artwork, so CSS width == visible figure width */
 .sm-wave  { left:16px;  top:38px;  width:78px; animation:sway 7.5s ease-in-out infinite; }
-.sm-cam   { right:18px; top:34vh;  width:74px; --pull-hand:0px; animation:sway 9.2s ease-in-out infinite reverse; }
+.sm-cam   { right:18px; top:34vh;  width:74px; animation:sway 9.2s ease-in-out infinite reverse; }
 
 /* --- responsive: shrink and tuck toward the edges as the screen narrows --- */
 @media(max-width:1660px){
@@ -503,22 +503,8 @@ footer{
   50%    {transform:rotate(4deg)}
 }
 
-/* The upside-down figure grips a vertical web. Scroll code moves both hands together. */
-.sm-pull-left,.sm-pull-right{
-  transform-box:fill-box;transform-origin:50% 0%;
-  transform:translateY(var(--pull-hand));
-  transition:transform .12s cubic-bezier(.16,1,.3,1);
-}
-.sm-web-down,.sm-web-echo{
-  fill:none;stroke-linecap:round;stroke-linejoin:round;
-  vector-effect:non-scaling-stroke;
-}
-.sm-web-down{stroke:#e8f9ff;stroke-width:1.55;filter:drop-shadow(0 0 4px rgba(103,215,255,.42))}
-.sm-web-echo{stroke:#8ddfff;stroke-width:.7;stroke-dasharray:3 5;opacity:.72}
-
 @media (prefers-reduced-motion:reduce){
   .sm,.sm-arm-wave,.sm-flash,.sm-lens,.sm-legs-a{animation:none!important}
-  .sm-pull-left,.sm-pull-right{transition:none!important}
 }
 
 /* ---------- REVEAL ---------- */
@@ -545,7 +531,7 @@ footer{
      ============================================================ -->
 <div class="spiders" aria-hidden="true">
 
-  <!-- 01 · original hanging figure, now in a black-and-white symbiote suit -->
+  <!-- 01 · hanging by one hand, waving hi -->
   <div class="sm sm-wave">
   <svg viewBox="0 0 83 246" xmlns="http://www.w3.org/2000/svg">
     <g stroke-linecap="round" fill="none">
@@ -554,67 +540,50 @@ footer{
       <path d="M59 16 L71 22 M71 32 L59 38 M59 42 L71 48" stroke="#dbe9f5" stroke-width=".9" opacity=".3"/>
 
       <!-- gripping arm -->
-      <path d="M65 58 L74 84" stroke="#16202b" stroke-width="9"/>
-      <path d="M74 84 L72 110" stroke="#090e14" stroke-width="10"/>
+      <path d="M65 58 L74 84" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M74 84 L72 110" stroke="#e02132" stroke-width="10"/>
 
-      <!-- arm now holding the camera -->
+      <!-- waving arm -->
       <g class="sm-arm-wave">
-        <path d="M40 113 L20 100" stroke="#090e14" stroke-width="10"/>
-        <path d="M20 100 L10 78" stroke="#16202b" stroke-width="9"/>
-        <circle cx="9" cy="75" r="6.5" fill="#16202b" stroke="none"/>
+        <path d="M40 113 L20 100" stroke="#e02132" stroke-width="10"/>
+        <path d="M20 100 L10 78" stroke="#2e6be6" stroke-width="9"/>
+        <circle cx="9" cy="75" r="6.5" fill="#2e6be6" stroke="none"/>
       </g>
 
       <!-- legs -->
       <g class="sm-legs-a">
-        <path d="M48 162 L42 200" stroke="#090e14" stroke-width="10"/>
-        <path d="M42 200 L46 232" stroke="#16202b" stroke-width="9"/>
-        <path d="M64 162 L70 202" stroke="#090e14" stroke-width="10"/>
-        <path d="M70 202 L64 234" stroke="#16202b" stroke-width="9"/>
-        <circle cx="46" cy="234" r="5.5" fill="#16202b" stroke="none"/>
-        <circle cx="64" cy="236" r="5.5" fill="#16202b" stroke="none"/>
+        <path d="M48 162 L42 200" stroke="#e02132" stroke-width="10"/>
+        <path d="M42 200 L46 232" stroke="#2e6be6" stroke-width="9"/>
+        <path d="M64 162 L70 202" stroke="#e02132" stroke-width="10"/>
+        <path d="M70 202 L64 234" stroke="#2e6be6" stroke-width="9"/>
+        <circle cx="46" cy="234" r="5.5" fill="#2e6be6" stroke="none"/>
+        <circle cx="64" cy="236" r="5.5" fill="#2e6be6" stroke="none"/>
       </g>
 
       <!-- torso -->
-      <path d="M38 112 C34 132, 38 152, 46 164 L66 164 C74 152, 76 132, 72 112 Z" fill="#090e14" stroke="none"/>
+      <path d="M38 112 C34 132, 38 152, 46 164 L66 164 C74 152, 76 132, 72 112 Z" fill="#e02132" stroke="none"/>
       <path d="M55 114 V162 M39 126 C55 134, 71 126, 71 126 M38 142 C55 150, 73 142, 73 142 M40 158 C55 166, 70 158, 70 158"
-            stroke="#536a7d" stroke-width="1.1" opacity=".9"/>
+            stroke="#7d0d18" stroke-width="1.1" opacity=".9"/>
       <!-- spider emblem -->
-      <g stroke="#e8f9ff" stroke-width="1.5">
+      <g stroke="#0d1016" stroke-width="1.5">
         <path d="M55 130 V144 M55 134 L48 128 M55 134 L62 128 M55 139 L47 143 M55 139 L63 143"/>
-        <circle cx="55" cy="136" r="2.2" fill="#e8f9ff"/>
+        <circle cx="55" cy="136" r="2.2" fill="#0d1016"/>
       </g>
 
       <!-- hand grip -->
-      <circle cx="65" cy="57" r="6.8" fill="#16202b" stroke="none"/>
+      <circle cx="65" cy="57" r="6.8" fill="#2e6be6" stroke="none"/>
 
       <!-- head -->
-      <ellipse cx="48" cy="92" rx="15.5" ry="14" fill="#090e14" stroke="none"/>
+      <ellipse cx="48" cy="92" rx="15.5" ry="14" fill="#e02132" stroke="none"/>
       <path d="M48 78 V106 M34 90 H62 M37 82 C48 88, 59 82, 59 82 M37 101 C48 95, 59 101, 59 101"
-            stroke="#536a7d" stroke-width=".9" opacity=".8"/>
+            stroke="#7d0d18" stroke-width=".9" opacity=".8"/>
       <ellipse cx="41" cy="90" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(-17 41 90)"/>
       <ellipse cx="56" cy="90" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(17 56 90)"/>
-
-      <!-- original camera moved from the right figure into the symbiote's hand -->
-      <g transform="translate(-10 -64) scale(.48)" stroke="none">
-        <rect x="56" y="268" width="18" height="7" rx="2" fill="#0d1016"/>
-        <rect x="43" y="274" width="44" height="28" rx="3.5" fill="#171b24"/>
-        <rect x="44" y="275" width="42" height="26" rx="3" fill="none" stroke="#33485e" stroke-width="1.3"/>
-        <circle cx="65" cy="288" r="11" fill="#0a0d12"/>
-        <circle cx="65" cy="288" r="9" fill="none" stroke="#3d5570" stroke-width="1.2"/>
-        <circle class="sm-lens" cx="65" cy="288" r="6.4" fill="#0d1016"/>
-        <circle cx="62" cy="285" r="2" fill="#ff8a3d" opacity=".6"/>
-        <rect x="77" y="278" width="6" height="4" rx="1.2" fill="#67d7ff"/>
-        <circle cx="48" cy="280" r="2" fill="#e02132"/>
-      </g>
-      <g class="sm-flash" transform="translate(-10 -64) scale(.48)" stroke="none">
-        <circle cx="65" cy="288" r="17" fill="#e0f8ff" opacity=".3"/>
-        <path d="M65 266 L68.5 283 L65 288 L61.5 283 Z M65 310 L61.5 293 L65 288 L68.5 293 Z M43 288 L60 284.5 L65 288 L60 291.5 Z M87 288 L70 291.5 L65 288 L70 284.5 Z" fill="#b8efff" opacity=".85"/>
-      </g>
     </g>
   </svg>
   </div>
 
-  <!-- 02 · the original upside-down Spider-Man, now pulling a vertical web -->
+  <!-- 02 · upside down with a camera -->
   <div class="sm sm-cam">
   <svg viewBox="30 0 70 314" xmlns="http://www.w3.org/2000/svg">
     <g stroke-linecap="round" fill="none">
@@ -629,15 +598,11 @@ footer{
       <path d="M65 92 L80 130" stroke="#2e6be6" stroke-width="9"/>
       <path d="M80 130 L78 172" stroke="#e02132" stroke-width="10"/>
 
-      <!-- arms now grip the web rather than the camera -->
-      <g class="sm-pull-left">
-        <path d="M54 234 L38 260" stroke="#e02132" stroke-width="10"/>
-        <path d="M38 260 L48 286" stroke="#2e6be6" stroke-width="9"/>
-      </g>
-      <g class="sm-pull-right">
-        <path d="M76 234 L92 260" stroke="#e02132" stroke-width="10"/>
-        <path d="M92 260 L82 286" stroke="#2e6be6" stroke-width="9"/>
-      </g>
+      <!-- arms bringing camera to eye -->
+      <path d="M54 234 L38 260" stroke="#e02132" stroke-width="10"/>
+      <path d="M38 260 L48 286" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M76 234 L92 260" stroke="#e02132" stroke-width="10"/>
+      <path d="M92 260 L82 286" stroke="#2e6be6" stroke-width="9"/>
 
       <!-- torso -->
       <path d="M52 172 C46 194, 48 218, 56 234 L74 234 C82 218, 84 194, 78 172 Z" fill="#e02132" stroke="none"/>
@@ -655,9 +620,25 @@ footer{
       <ellipse cx="58" cy="256" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(17 58 256)"/>
       <ellipse cx="73" cy="256" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(-17 73 256)"/>
 
-      <path d="M48 286H82" stroke="#2e6be6" stroke-width="3" opacity=".72"/>
-      <path id="smWebDown" class="sm-web-down" d="M65 286 C61 340 69 400 65 548"/>
-      <path id="smWebEcho" class="sm-web-echo" d="M68 286 C72 340 62 400 68 548"/>
+      <!-- camera -->
+      <g stroke="none">
+        <rect x="56" y="268" width="18" height="7" rx="2" fill="#0d1016"/>
+        <rect x="43" y="274" width="44" height="28" rx="3.5" fill="#171b24"/>
+        <rect x="44" y="275" width="42" height="26" rx="3" fill="none" stroke="#33485e" stroke-width="1.3"/>
+        <circle cx="65" cy="288" r="11" fill="#0a0d12"/>
+        <circle cx="65" cy="288" r="9" fill="none" stroke="#3d5570" stroke-width="1.2"/>
+        <circle class="sm-lens" cx="65" cy="288" r="6.4" fill="#0d1016"/>
+        <circle cx="62" cy="285" r="2" fill="#ff8a3d" opacity=".6"/>
+        <rect x="77" y="278" width="6" height="4" rx="1.2" fill="#67d7ff"/>
+        <circle cx="48" cy="280" r="2" fill="#e02132"/>
+      </g>
+      <!-- flash burst -->
+      <g class="sm-flash" stroke="none">
+        <circle cx="65" cy="288" r="17" fill="#e0f8ff" opacity=".3"/>
+        <path d="M65 266 L68.5 283 L65 288 L61.5 283 Z M65 310 L61.5 293 L65 288 L68.5 293 Z
+                 M43 288 L60 284.5 L65 288 L60 291.5 Z M87 288 L70 291.5 L65 288 L70 284.5 Z"
+              fill="#b8efff" opacity=".85"/>
+      </g>
     </g>
   </svg>
   </div>
@@ -984,64 +965,6 @@ lb.addEventListener('keydown', e => {
     if(a < alts.length){ pi.src = alts[a]; }
     else { ps.classList.add('err'); }
   });
-})();
-
-/* ---------- UPSIDE-DOWN SPIDER-MAN · vertical web pull on scroll ---------- */
-(function(){
-  const spider = document.querySelector('.sm-cam');
-  const web = document.getElementById('smWebDown');
-  const echo = document.getElementById('smWebEcho');
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if(!spider || !web || !echo || reduced.matches) return;
-
-  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-  let target = 0;
-  let current = 0;
-  let direction = 1;
-  let lastScroll = window.scrollY;
-  let armed = false;
-  let frame = 0;
-
-  function schedule(){
-    if(!frame) frame = requestAnimationFrame(render);
-  }
-
-  function drawWeb(path, amount, opacity){
-    const length = path.getTotalLength() || 1;
-    path.style.strokeDasharray = String(length);
-    path.style.strokeDashoffset = String(length * (1 - amount));
-    path.style.opacity = String(opacity);
-  }
-
-  function render(){
-    frame = 0;
-    current += (target - current) * .18;
-    if(Math.abs(target - current) < .001) current = target;
-
-    /* Once the first scroll fires the web, a short strand remains visible at the top. */
-    const webAmount = armed ? .16 + current * .84 : 0;
-    drawWeb(web, webAmount, armed ? .9 : 0);
-    drawWeb(echo, webAmount, armed ? .68 : 0);
-    spider.style.setProperty('--pull-hand', `${(direction > 0 ? -8 : 8) * (armed ? .4 + current * .6 : 0)}px`);
-    spider.classList.toggle('is-pulling', armed && direction > 0);
-    spider.classList.toggle('is-pushing', armed && direction < 0);
-
-    if(Math.abs(target - current) >= .001) schedule();
-  }
-
-  function onScroll(){
-    const scroll = Math.max(0, window.scrollY);
-    if(scroll > 12) armed = true;
-    const delta = scroll - lastScroll;
-    if(Math.abs(delta) > .25) direction = Math.sign(delta);
-    lastScroll = scroll;
-    target = clamp(scroll / Math.max(1, window.innerHeight), 0, 1);
-    schedule();
-  }
-
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', schedule, {passive:true});
-  onScroll();
 })();
 
 /* ---------- REVEAL ON SCROLL ---------- */
