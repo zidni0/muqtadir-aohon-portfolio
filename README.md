@@ -20,4 +20,4 @@ The page is self-contained and does not require Google Fonts or another third-pa
 
 ## Design notes
 
-The interface uses a restrained CRT treatment as its single visual signature. Gallery images remain the focus; the previous boot screen, fake camera telemetry, animated mascot decorations, and duplicated chromatic effects were removed for faster access and a clearer portfolio hierarchy.
+The interface uses a restrained CRT treatment and the hanging Spider-Man illustrations as its visual signatures. Gallery images remain the focus; the previous boot screen, fake camera telemetry, and duplicated chromatic effects were removed for faster access and a clearer portfolio hierarchy.
