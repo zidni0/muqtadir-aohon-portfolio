@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUQTADIR AOHON MOZUMDER — Photographer / Videographer</title>
+<meta name="description" content="Portfolio of Muqtadir Aohon Mozumder — photographer and videographer. Event coverage, portraiture and cinematic atmospheric work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800;900&family=Share+Tech+Mono&family=Michroma&family=Anton&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MUQTADIR AOHON MOZUMDER — RETRO CRT PORTFOLIO
+   Sony Trinitron / 2000s retro-futurist treatment
+   ============================================================ */
+
+:root{
+  --void:#04060a;
+  --panel:#0a0e14;
+  --panel-2:#0e141c;
+  --line:#1c2733;
+  --line-hot:#2b3d4f;
+  --cyan:#ff8a3d;
+  --cyan-dim:#a65328;
+  --cyan-rgb:255,138,61;
+  --amber:#ffb300;
+  --red:#ff2d3f;
+  --blue:#7c5cff;
+  --sm-red:#e02132;
+  --sm-blue:#7658e8;
+  --txt:#c9d6e2;
+  --txt-dim:#6b7d8f;
+  --mono:'Share Tech Mono', ui-monospace, 'Courier New', monospace;
+  --display:'Big Shoulders Display', 'Anton', Impact, sans-serif;
+  --tech:'Michroma', 'Big Shoulders Display', sans-serif;
+  --stat-display:'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --gut:clamp(16px, 4vw, 56px);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--void);
+  color:var(--txt);
+  font-family:var(--mono);
+  font-size:15px;
+  line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--cyan);color:#000}
+
+/* ---------- CRT GLOBAL OVERLAYS ---------- */
+.crt-scan{
+  position:fixed;inset:0;z-index:9000;pointer-events:none;
+  background:repeating-linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 2px,
+    rgba(0,0,0,.28) 3px,
+    rgba(0,0,0,.28) 4px
+  );
+  mix-blend-mode:multiply;
+  opacity:.75;
+}
+.crt-mask{
+  position:fixed;inset:0;z-index:9001;pointer-events:none;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,.55) 100%),
+    linear-gradient(90deg, rgba(255,0,60,.028), rgba(0,255,220,.028));
+}
+.crt-flicker{
+  position:fixed;inset:0;z-index:9002;pointer-events:none;
+  background:rgba(120,180,255,.02);
+  animation:flick 6.5s steps(2,end) infinite;
+}
+@keyframes flick{
+  0%,96%{opacity:0}
+  97%{opacity:.5}
+  98%{opacity:0}
+  99%{opacity:.35}
+  100%{opacity:0}
+}
+.crt-roll{
+  position:fixed;left:0;right:0;height:120px;z-index:9003;pointer-events:none;
+  background:linear-gradient(to bottom, rgba(255,255,255,0), rgba(180,220,255,.035), rgba(255,255,255,0));
+  animation:roll 9s linear infinite;
+}
+@keyframes roll{
+  0%{transform:translateY(-140px)}
+  100%{transform:translateY(105vh)}
+}
+@media (prefers-reduced-motion:reduce){
+  .crt-flicker,.crt-roll{display:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- BOOT SEQUENCE ---------- */
+#boot{
+  position:fixed;inset:0;z-index:9500;background:#000;
+  display:flex;align-items:center;justify-content:center;
+  transition:opacity .6s ease, visibility .6s;
+}
+#boot.done{opacity:0;visibility:hidden}
+.boot-inner{width:min(560px,86vw)}
+.boot-line{
+  font-family:var(--mono);font-size:13px;color:var(--cyan);
+  letter-spacing:.06em;white-space:pre;opacity:0;
+}
+.boot-line.on{opacity:1}
+.boot-bar{
+  margin-top:18px;height:8px;border:1px solid var(--cyan-dim);
+  position:relative;overflow:hidden;
+}
+.boot-bar i{
+  position:absolute;inset:0;width:0%;background:var(--cyan);
+  box-shadow:0 0 14px var(--cyan);
+  animation:load 2.1s cubic-bezier(.5,0,.3,1) forwards;
+}
+@keyframes load{to{width:100%}}
+.boot-skip{
+  margin-top:14px;font-size:11px;color:var(--txt-dim);letter-spacing:.14em;
+}
+
+/* ---------- CHROME / BEVEL PANEL SYSTEM ---------- */
+.bevel{
+  background:linear-gradient(160deg, var(--panel-2), var(--panel));
+  border:1px solid var(--line);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(0,0,0,.7),
+    0 0 0 1px rgba(0,0,0,.6),
+    0 18px 50px -20px rgba(0,0,0,.9);
+  position:relative;
+}
+.brackets::before,.brackets::after{
+  content:'';position:absolute;width:14px;height:14px;pointer-events:none;
+}
+.brackets::before{top:-1px;left:-1px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan)}
+.brackets::after{bottom:-1px;right:-1px;border-bottom:2px solid var(--cyan);border-right:2px solid var(--cyan)}
+
+/* ---------- TOP STATUS BAR ---------- */
+.statusbar{
+  position:fixed;top:0;left:0;right:0;z-index:600;
+  display:flex;align-items:center;gap:14px;
+  padding:0 var(--gut);height:34px;
+  background:rgba(4,6,10,.92);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(8px);
+  font-size:11px;letter-spacing:.16em;color:var(--txt-dim);
+  text-transform:uppercase;
+}
+.rec{display:flex;align-items:center;gap:7px;color:var(--red)}
+.rec i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1.6s infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:.15}}
+.sb-spacer{flex:1}
+.sb-hide{color:var(--cyan-dim)}
+@media(max-width:760px){.sb-hide{display:none}}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:34px;left:0;right:0;z-index:590;
+  display:flex;align-items:center;gap:var(--gut);
+  padding:10px var(--gut);
+  background:rgba(6,9,13,.88);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(10px);
+}
+.nav-mark{
+  font-family:var(--tech);font-size:12px;letter-spacing:.18em;color:#fff;
+  white-space:nowrap;
+}
+.nav-mark b{color:var(--cyan)}
+.nav-links{display:flex;gap:20px;flex:1;flex-wrap:wrap}
+.nav-links a{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-dim);
+  padding:4px 0;border-bottom:1px solid transparent;transition:.2s;
+}
+.nav-links a:hover{color:var(--cyan);border-bottom-color:var(--cyan)}
+@media(max-width:900px){
+  .nav{gap:14px}
+  .nav-links{gap:12px}
+  .nav-links a{font-size:10px;letter-spacing:.1em}
+}
+
+/* ---------- LAYOUT ---------- */
+main{padding-top:84px}
+section{padding:0 var(--gut)}
+.wrap{max-width:1500px;margin:0 auto}
+
+/* ---------- HERO ---------- */
+.hero{padding-top:clamp(30px,6vw,70px);padding-bottom:clamp(40px,7vw,90px)}
+.hero-grid{
+  display:grid;grid-template-columns:minmax(280px,420px) 1fr;
+  gap:clamp(22px,4vw,56px);align-items:start;
+}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+
+.portrait-unit{position:relative}
+.portrait-frame{
+  padding:10px;border-radius:2px;
+}
+.portrait-screen{
+  position:relative;overflow:hidden;background:#000;
+  border:1px solid var(--line-hot);
+  aspect-ratio:3/4;
+}
+.portrait-screen img{
+  width:100%;height:100%;object-fit:cover;
+  filter:contrast(1.06) saturate(.92);
+}
+.portrait-screen::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.22) 2px 4px),
+    radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 45%, rgba(0,0,0,.6) 100%);
+}
+.nosignal{
+  position:absolute;inset:0;display:none;
+  align-items:center;justify-content:center;flex-direction:column;gap:10px;
+  background:
+    repeating-linear-gradient(90deg,#0a0a0a 0 12.5%,#151515 12.5% 25%);
+  color:var(--txt-dim);font-size:12px;letter-spacing:.2em;
+}
+.portrait-screen.err img{display:none}
+.portrait-screen.err .nosignal{display:flex}
+
+.osd{
+  position:absolute;z-index:3;font-size:10px;letter-spacing:.18em;
+  color:var(--cyan);text-shadow:0 0 8px rgba(var(--cyan-rgb),.6);
+}
+.osd.tl{top:18px;left:20px}
+.osd.tr{top:18px;right:20px;color:var(--amber);text-shadow:0 0 8px rgba(255,179,0,.5)}
+.osd.bl{bottom:18px;left:20px;color:var(--txt-dim)}
+
+.portrait-meta{
+  display:flex;justify-content:space-between;gap:10px;
+  margin-top:10px;padding:8px 10px;
+  font-size:10px;letter-spacing:.16em;color:var(--txt-dim);
+  border-top:1px solid var(--line);
+}
+
+/* ---------- HERO TYPE ---------- */
+.eyebrow{
+  display:inline-block;font-size:10px;letter-spacing:.34em;color:var(--amber);
+  border:1px solid rgba(255,179,0,.35);padding:5px 12px;margin-bottom:20px;
+  text-transform:uppercase;
+}
+.hero-name{
+  font-family:var(--display);
+  font-weight:900;
+  font-size:clamp(40px,7.4vw,104px);
+  line-height:.86;
+  letter-spacing:.005em;
+  text-transform:uppercase;
+  color:#fff;
+  transform:skewX(-5deg);
+  transform-origin:left;
+  margin-bottom:6px;
+  position:relative;
+  text-shadow:
+    3px 0 0 var(--sm-red),
+   -3px 0 0 var(--sm-blue),
+    5px 0 0 rgba(224,33,50,.35),
+   -5px 0 0 rgba(46,107,230,.35),
+    0 0 38px rgba(var(--cyan-rgb),.15);
+}
+.hero-name span{display:block}
+.hero-role{
+  font-family:var(--tech);
+  font-size:clamp(10px,1.25vw,14px);
+  letter-spacing:.3em;color:var(--cyan);
+  margin:16px 0 26px;
+  text-transform:uppercase;
+}
+.rule{
+  height:1px;background:linear-gradient(90deg,var(--cyan),transparent);
+  margin:22px 0;
+}
+
+/* SPIDER-MAN STYLE BIO BLOCK */
+.bio{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(19px,2.15vw,30px);
+  line-height:1.28;
+  letter-spacing:.012em;
+  color:#eaf3fa;
+  transform:skewX(-3.5deg);
+  transform-origin:left;
+  text-transform:uppercase;
+  text-shadow:1.6px 0 0 var(--sm-red), -1.6px 0 0 var(--sm-blue);
+  max-width:26ch;
+}
+.bio p+p{margin-top:.7em}
+.bio .hl{color:var(--amber);text-shadow:1.6px 0 0 rgba(224,33,50,.75), -1.6px 0 0 rgba(46,107,230,.75)}
+.bio .lead{
+  font-weight:900;
+  font-size:1.22em;
+  color:#fff;
+}
+@media(max-width:920px){.bio{max-width:100%}}
+
+.hero-stats{
+  display:flex;flex-wrap:wrap;gap:0;margin-top:34px;
+  border:1px solid var(--line);
+}
+.stat{
+  flex:1 1 140px;padding:14px 16px;border-right:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+}
+.stat:last-child{border-right:0}
+.stat b{
+  display:block;font-family:var(--stat-display);font-weight:700;
+  font-size:clamp(22px,2.2vw,30px);color:var(--cyan);
+  letter-spacing:-.03em;line-height:1.2;
+  text-shadow:0 0 18px rgba(var(--cyan-rgb),.28);
+}
+.stat span{
+  font-family:var(--stat-display);font-weight:600;font-size:10px;
+  letter-spacing:.14em;color:var(--txt-dim);text-transform:uppercase;
+}
+@media(max-width:620px){.stat{flex:1 1 50%;border-bottom:1px solid var(--line)}}
+
+/* ---------- SECTION HEADERS ---------- */
+.sec{padding-top:clamp(46px,7vw,96px);padding-bottom:8px}
+.sec-head{
+  display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;
+  padding-bottom:16px;margin-bottom:24px;
+  border-bottom:1px solid var(--line);
+}
+.sec-ch{
+  font-family:var(--tech);font-size:11px;letter-spacing:.28em;
+  color:var(--amber);padding-bottom:6px;white-space:nowrap;
+}
+.sec-title{
+  font-family:var(--display);font-weight:900;text-transform:uppercase;
+  font-size:clamp(28px,4.6vw,60px);line-height:.9;color:#fff;
+  transform:skewX(-5deg);transform-origin:left;
+  text-shadow:2.2px 0 0 var(--sm-red), -2.2px 0 0 var(--sm-blue);
+}
+.sec-meta{
+  margin-left:auto;font-size:10px;letter-spacing:.2em;color:var(--txt-dim);
+  text-align:right;padding-bottom:8px;white-space:nowrap;
+}
+.sec-blurb{
+  font-size:12px;color:var(--txt-dim);letter-spacing:.05em;
+  max-width:62ch;margin:-10px 0 26px;
+}
+
+/* ---------- GALLERY ---------- */
+.grid{
+  columns:4;column-gap:14px;
+}
+@media(max-width:1280px){.grid{columns:3}}
+@media(max-width:860px){.grid{columns:2}}
+@media(max-width:520px){.grid{columns:1}}
+
+.cell{
+  break-inside:avoid;margin-bottom:14px;position:relative;
+  background:#070a0e;border:1px solid var(--line);
+  overflow:hidden;cursor:pointer;
+  transition:border-color .25s ease, transform .25s ease;
+}
+.cell:hover{border-color:var(--cyan);transform:translateY(-3px)}
+.cell:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.cell img{
+  width:100%;height:auto;display:block;
+  filter:contrast(1.04) saturate(.95) brightness(.96);
+  transition:filter .3s ease, transform .5s ease;
+  background:#0a0e14;
+  min-height:120px;
+}
+.cell:hover img{filter:contrast(1.1) saturate(1.05) brightness(1.02);transform:scale(1.02)}
+.cell::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 2px, rgba(0,0,0,.16) 2px 4px);
+  opacity:.85;transition:opacity .3s;
+}
+.cell:hover::after{opacity:.35}
+.cell-tag{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  padding:26px 10px 8px;
+  font-size:9px;letter-spacing:.2em;color:var(--cyan);
+  background:linear-gradient(to top, rgba(3,6,10,.92), transparent);
+  opacity:0;transition:opacity .25s;text-transform:uppercase;
+}
+.cell:hover .cell-tag,.cell:focus-visible .cell-tag{opacity:1}
+
+/* ---------- LIGHTBOX ---------- */
+#lb{
+  position:fixed;inset:0;z-index:8000;display:none;
+  background:rgba(2,4,7,.97);
+  align-items:center;justify-content:center;
+  padding:56px 20px 76px;
+}
+#lb.on{display:flex}
+#lb img{
+  max-width:100%;max-height:100%;object-fit:contain;
+  border:1px solid var(--line-hot);
+  box-shadow:0 0 90px -20px rgba(var(--cyan-rgb),.35);
+}
+.lb-bar{
+  position:absolute;left:0;right:0;padding:12px var(--gut);
+  font-size:10px;letter-spacing:.2em;color:var(--txt-dim);
+  display:flex;gap:16px;align-items:center;text-transform:uppercase;
+}
+.lb-bar.top{top:0;border-bottom:1px solid var(--line)}
+.lb-bar.bot{bottom:0;border-top:1px solid var(--line);justify-content:center}
+.lb-x{margin-left:auto;color:var(--red);cursor:pointer;letter-spacing:.2em}
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:46px;height:70px;border:1px solid var(--line);
+  background:rgba(8,12,18,.8);color:var(--cyan);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;font-size:18px;transition:.2s;user-select:none;
+}
+.lb-nav:hover{border-color:var(--cyan);background:rgba(var(--cyan-rgb),.12)}
+.lb-prev{left:12px}
+.lb-next{right:12px}
+@media(max-width:620px){.lb-nav{width:36px;height:54px}}
+
+/* ---------- CONTACT ---------- */
+.contact{padding-top:clamp(56px,8vw,110px);padding-bottom:0}
+.contact-panel{padding:clamp(24px,4vw,52px)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);align-items:center;
+}
+@media(max-width:860px){.contact-grid{grid-template-columns:1fr}}
+.contact-cta{
+  font-family:var(--display);font-weight:900;text-transform:uppercase;
+  font-size:clamp(30px,5vw,68px);line-height:.9;color:#fff;
+  transform:skewX(-5deg);transform-origin:left;
+  text-shadow:2.6px 0 0 var(--sm-red), -2.6px 0 0 var(--sm-blue);
+}
+.contact-cta em{color:var(--amber);font-style:normal}
+.links{display:flex;flex-direction:column;gap:2px}
+.link{
+  display:flex;align-items:center;gap:16px;
+  padding:16px 4px;border-bottom:1px solid var(--line);
+  transition:.22s;
+}
+.link:hover{background:rgba(var(--cyan-rgb),.05);padding-left:12px;border-bottom-color:var(--cyan)}
+.link .k{
+  font-size:10px;letter-spacing:.22em;color:var(--txt-dim);
+  width:88px;flex-shrink:0;text-transform:uppercase;
+}
+.link .v{
+  font-family:var(--tech);font-size:clamp(11px,1.5vw,15px);
+  color:#fff;letter-spacing:.05em;word-break:break-all;
+}
+.link:hover .v{color:var(--cyan)}
+
+/* ---------- FOOTER ---------- */
+footer{
+  margin-top:clamp(50px,7vw,90px);
+  padding:22px var(--gut);
+  border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:10px;letter-spacing:.2em;color:var(--txt-dim);
+  text-transform:uppercase;
+}
+
+/* ============================================================
+   HANGING SPIDER-MEN — side decoration
+   ============================================================ */
+.spiders{
+  position:fixed;inset:0;z-index:520;pointer-events:none;
+  display:block;
+}
+
+.sm{
+  position:fixed;
+  transform-origin:50% 0%;
+  filter:drop-shadow(0 14px 26px rgba(0,0,0,.75));
+  opacity:.94;
+}
+.sm svg{display:block;width:100%;height:auto;overflow:visible}
+
+/* placements — sit in the outer page gutters */
+/* viewBoxes are cropped tight to the artwork, so CSS width == visible figure width */
+.sm-wave  { left:16px;  top:38px;  width:78px; animation:sway 7.5s ease-in-out infinite; }
+.sm-cam   { right:18px; top:34vh;  width:74px; animation:sway 9.2s ease-in-out infinite reverse; }
+
+/* --- responsive: shrink and tuck toward the edges as the screen narrows --- */
+@media(max-width:1660px){
+  .sm-wave{width:66px}
+  .sm-cam {width:62px}
+}
+@media(max-width:1240px){
+  .sm-wave{width:58px;  left:10px}
+  .sm-cam {width:54px;  right:10px}
+  .sm{opacity:.85}
+}
+/* NOTE: the status bar + nav occupy the top ~80-110px and sit at z-index 590/600,
+   which is ABOVE .spiders (520). On narrow screens the nav wraps and gets taller,
+   so the upper spider must hang below it or it gets covered. */
+@media(max-width:900px){
+  .sm-wave{width:50px;  left:4px;  top:118px}
+  .sm-cam {width:46px;  right:4px; top:44vh}
+  .sm{opacity:.82}
+}
+/* phones — never use a negative offset here, it clips the figure itself */
+@media(max-width:620px){
+  .sm-wave{width:44px;  left:2px;  top:112px}
+  .sm-cam {width:40px;  right:2px; top:52vh}
+  .sm{opacity:.8; filter:drop-shadow(0 6px 12px rgba(0,0,0,.85))}
+}
+@media(max-width:380px){
+  .sm-wave{width:38px;  left:1px}
+  .sm-cam {width:35px;  right:1px}
+  .sm{opacity:.78}
+}
+/* short/landscape phones — nav is shallower, content is squeezed */
+@media(max-height:520px){
+  .sm-wave{top:96px}
+  .sm-cam {top:56vh}
+}
+
+@keyframes sway{
+  0%,100%{transform:rotate(-3.2deg)}
+  50%    {transform:rotate(3.2deg)}
+}
+
+/* waving hand */
+.sm-arm-wave{
+  transform-box:view-box;
+  transform-origin:40px 113px;
+  animation:wave 2.4s ease-in-out infinite;
+}
+@keyframes wave{
+  0%,18%,100%{transform:rotate(0deg)}
+  30%{transform:rotate(-19deg)}
+  42%{transform:rotate(9deg)}
+  54%{transform:rotate(-16deg)}
+  66%{transform:rotate(6deg)}
+  78%{transform:rotate(-9deg)}
+}
+
+/* camera flash */
+.sm-flash{opacity:0;animation:flash 5.6s ease-out infinite}
+@keyframes flash{
+  0%,86%{opacity:0}
+  88%{opacity:1}
+  93%{opacity:.25}
+  95%{opacity:.9}
+  100%{opacity:0}
+}
+.sm-lens{animation:lens 5.6s ease-out infinite}
+@keyframes lens{
+  0%,86%{fill:#0d1016}
+  89%{fill:#ffe9a8}
+  100%{fill:#0d1016}
+}
+
+/* dangling legs */
+.sm-legs-a{transform-box:view-box;transform-origin:56px 162px;animation:dangle 5.6s ease-in-out infinite}
+@keyframes dangle{
+  0%,100%{transform:rotate(-4deg)}
+  50%    {transform:rotate(4deg)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sm,.sm-arm-wave,.sm-flash,.sm-lens,.sm-legs-a{animation:none!important}
+}
+
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease, transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- PRINT ---------- */
+@media print{
+  .crt-scan,.crt-mask,.crt-flicker,.crt-roll,#boot,.statusbar,.nav,#lb{display:none!important}
+  body{background:#fff;color:#000}
+  main{padding-top:0}
+  .grid{columns:3}
+  .cell{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- CRT overlays -->
+<div class="crt-scan"></div>
+<div class="crt-mask"></div>
+<div class="crt-flicker"></div>
+<div class="crt-roll"></div>
+
+<!-- ============================================================
+     HANGING SPIDER-MEN
+     ============================================================ -->
+<div class="spiders" aria-hidden="true">
+
+  <!-- 01 — hanging by one hand, waving hi -->
+  <div class="sm sm-wave">
+  <svg viewBox="0 0 83 246" xmlns="http://www.w3.org/2000/svg">
+    <g stroke-linecap="round" fill="none">
+      <!-- web strand -->
+      <path d="M65 0 V56" stroke="#dbe9f5" stroke-width="1.7" opacity=".55"/>
+      <path d="M59 16 L71 22 M71 32 L59 38 M59 42 L71 48" stroke="#dbe9f5" stroke-width=".9" opacity=".3"/>
+
+      <!-- gripping arm -->
+      <path d="M65 58 L74 84" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M74 84 L72 110" stroke="#e02132" stroke-width="10"/>
+
+      <!-- waving arm -->
+      <g class="sm-arm-wave">
+        <path d="M40 113 L20 100" stroke="#e02132" stroke-width="10"/>
+        <path d="M20 100 L10 78" stroke="#2e6be6" stroke-width="9"/>
+        <circle cx="9" cy="75" r="6.5" fill="#2e6be6" stroke="none"/>
+      </g>
+
+      <!-- legs -->
+      <g class="sm-legs-a">
+        <path d="M48 162 L42 200" stroke="#e02132" stroke-width="10"/>
+        <path d="M42 200 L46 232" stroke="#2e6be6" stroke-width="9"/>
+        <path d="M64 162 L70 202" stroke="#e02132" stroke-width="10"/>
+        <path d="M70 202 L64 234" stroke="#2e6be6" stroke-width="9"/>
+        <circle cx="46" cy="234" r="5.5" fill="#2e6be6" stroke="none"/>
+        <circle cx="64" cy="236" r="5.5" fill="#2e6be6" stroke="none"/>
+      </g>
+
+      <!-- torso -->
+      <path d="M38 112 C34 132, 38 152, 46 164 L66 164 C74 152, 76 132, 72 112 Z" fill="#e02132" stroke="none"/>
+      <path d="M55 114 V162 M39 126 C55 134, 71 126, 71 126 M38 142 C55 150, 73 142, 73 142 M40 158 C55 166, 70 158, 70 158"
+            stroke="#7d0d18" stroke-width="1.1" opacity=".9"/>
+      <!-- spider emblem -->
+      <g stroke="#0d1016" stroke-width="1.5">
+        <path d="M55 130 V144 M55 134 L48 128 M55 134 L62 128 M55 139 L47 143 M55 139 L63 143"/>
+        <circle cx="55" cy="136" r="2.2" fill="#0d1016"/>
+      </g>
+
+      <!-- hand grip -->
+      <circle cx="65" cy="57" r="6.8" fill="#2e6be6" stroke="none"/>
+
+      <!-- head -->
+      <ellipse cx="48" cy="92" rx="15.5" ry="14" fill="#e02132" stroke="none"/>
+      <path d="M48 78 V106 M34 90 H62 M37 82 C48 88, 59 82, 59 82 M37 101 C48 95, 59 101, 59 101"
+            stroke="#7d0d18" stroke-width=".9" opacity=".8"/>
+      <ellipse cx="41" cy="90" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(-17 41 90)"/>
+      <ellipse cx="56" cy="90" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(17 56 90)"/>
+    </g>
+  </svg>
+  </div>
+
+  <!-- 02 — upside down with a camera -->
+  <div class="sm sm-cam">
+  <svg viewBox="30 0 70 314" xmlns="http://www.w3.org/2000/svg">
+    <g stroke-linecap="round" fill="none">
+      <!-- web strand -->
+      <path d="M65 0 V88" stroke="#dbe9f5" stroke-width="1.7" opacity=".55"/>
+      <path d="M59 22 L71 28 M71 44 L59 50 M59 62 L71 68" stroke="#dbe9f5" stroke-width=".9" opacity=".3"/>
+      <circle cx="65" cy="89" r="6.5" fill="#2e6be6" stroke="none"/>
+
+      <!-- legs up to the web -->
+      <path d="M65 92 L50 130" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M50 130 L52 172" stroke="#e02132" stroke-width="10"/>
+      <path d="M65 92 L80 130" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M80 130 L78 172" stroke="#e02132" stroke-width="10"/>
+
+      <!-- arms bringing camera to eye -->
+      <path d="M54 234 L38 260" stroke="#e02132" stroke-width="10"/>
+      <path d="M38 260 L48 286" stroke="#2e6be6" stroke-width="9"/>
+      <path d="M76 234 L92 260" stroke="#e02132" stroke-width="10"/>
+      <path d="M92 260 L82 286" stroke="#2e6be6" stroke-width="9"/>
+
+      <!-- torso -->
+      <path d="M52 172 C46 194, 48 218, 56 234 L74 234 C82 218, 84 194, 78 172 Z" fill="#e02132" stroke="none"/>
+      <path d="M65 174 V232 M53 186 C65 194, 77 186, 77 186 M51 204 C65 212, 79 204, 79 204 M54 222 C65 230, 76 222, 76 222"
+            stroke="#7d0d18" stroke-width="1.1" opacity=".9"/>
+      <g stroke="#0d1016" stroke-width="1.5">
+        <path d="M65 194 V208 M65 198 L58 192 M65 198 L72 192 M65 203 L57 207 M65 203 L73 207"/>
+        <circle cx="65" cy="200" r="2.2" fill="#0d1016"/>
+      </g>
+
+      <!-- head (inverted) -->
+      <ellipse cx="65" cy="254" rx="15.5" ry="14" fill="#e02132" stroke="none"/>
+      <path d="M65 240 V268 M51 252 H79 M54 261 C65 255, 76 261, 76 261"
+            stroke="#7d0d18" stroke-width=".9" opacity=".8"/>
+      <ellipse cx="58" cy="256" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(17 58 256)"/>
+      <ellipse cx="73" cy="256" rx="6.6" ry="4.7" fill="#ffffff" stroke="#0d1016" stroke-width="1.5" transform="rotate(-17 73 256)"/>
+
+      <!-- camera -->
+      <g stroke="none">
+        <rect x="56" y="268" width="18" height="7" rx="2" fill="#0d1016"/>
+        <rect x="43" y="274" width="44" height="28" rx="3.5" fill="#171b24"/>
+        <rect x="44" y="275" width="42" height="26" rx="3" fill="none" stroke="#33485e" stroke-width="1.3"/>
+        <circle cx="65" cy="288" r="11" fill="#0a0d12"/>
+        <circle cx="65" cy="288" r="9" fill="none" stroke="#3d5570" stroke-width="1.2"/>
+        <circle class="sm-lens" cx="65" cy="288" r="6.4" fill="#0d1016"/>
+        <circle cx="62" cy="285" r="2" fill="#ff8a3d" opacity=".6"/>
+        <rect x="77" y="278" width="6" height="4" rx="1.2" fill="#ffb300"/>
+        <circle cx="48" cy="280" r="2" fill="#e02132"/>
+      </g>
+      <!-- flash burst -->
+      <g class="sm-flash" stroke="none">
+        <circle cx="65" cy="288" r="17" fill="#fff6d8" opacity=".3"/>
+        <path d="M65 266 L68.5 283 L65 288 L61.5 283 Z M65 310 L61.5 293 L65 288 L68.5 293 Z
+                 M43 288 L60 284.5 L65 288 L60 291.5 Z M87 288 L70 291.5 L65 288 L70 284.5 Z"
+              fill="#ffe9a8" opacity=".85"/>
+      </g>
+    </g>
+  </svg>
+  </div>
+
+</div>
+
+<!-- Boot sequence -->
+<div id="boot">
+  <div class="boot-inner">
+    <div class="boot-line" data-i="0">TRINITRON IMAGING SYSTEM · BIOS v2.04</div>
+    <div class="boot-line" data-i="1">DETECTING OPTICAL SENSOR .......... OK</div>
+    <div class="boot-line" data-i="2">COLOR MATRIX / GAMMA .............. OK</div>
+    <div class="boot-line" data-i="3">MOUNTING ARCHIVE : 88 FRAMES ...... OK</div>
+    <div class="boot-line" data-i="4">OPERATOR : M. A. MOZUMDER</div>
+    <div class="boot-bar"><i></i></div>
+    <div class="boot-skip">PRESS ANY KEY TO SKIP</div>
+  </div>
+</div>
+
+<!-- Status bar -->
+<div class="statusbar">
+  <div class="rec"><i></i> REC</div>
+  <div class="sb-hide">ISO AUTO</div>
+  <div class="sb-hide">WB 5600K</div>
+  <div class="sb-hide">24 FPS</div>
+  <div class="sb-spacer"></div>
+  <div class="sb-hide">ARCHIVE 2025 — 2026</div>
+  <div id="clock">--:--:--</div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-mark">M<b>·</b>A<b>·</b>M</div>
+  <div class="nav-links">
+    <a href="#portraits">Portraits</a>
+    <a href="#icn">ICN</a>
+    <a href="#ballers">Ballers</a>
+    <a href="#booth">Booth</a>
+    <a href="#cinematic">Cinematic</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+<div class="wrap">
+  <div class="hero-grid">
+
+    <div class="portrait-unit rv">
+      <div class="bevel brackets portrait-frame">
+        <div class="portrait-screen" id="pscreen">
+          <span class="osd tl">● CAM 01</span>
+          <span class="osd tr">SELF</span>
+          <span class="osd bl">f/1.8 &nbsp; 1/250 &nbsp; ISO 200</span>
+          <img id="pimg" src="assets/profile.jpg" alt="Muqtadir Aohon Mozumder">
+          <div class="nosignal">
+            <div>NO SIGNAL</div>
+            <div style="font-size:9px;letter-spacing:.14em">assets/profile.jpg</div>
+          </div>
+        </div>
+        <div class="portrait-meta">
+          <span>SUBJECT / OPERATOR</span>
+          <span>REC 00:00:01</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rv">
+      <div class="eyebrow">Photographer &nbsp;/&nbsp; Videographer</div>
+      <h1 class="hero-name">
+        <span>Muqtadir</span>
+        <span>Aohon</span>
+        <span>Mozumder</span>
+      </h1>
+      <div class="hero-role">Stills · Motion · Event Coverage</div>
+
+      <div class="rule"></div>
+
+      <div class="bio">
+        <p class="lead">Hi — this is your friendly neighbourhood photographer.</p>
+        <p>My name's Muqtadir Aohon Mozumder, and I'm a photographer and videographer, though photography is my main field.</p>
+        <p>For me, <span class="hl">photos were never meant to be perfect.</span> We humans are imperfect, so the photos we take are imperfect as well.</p>
+        <p>You may have lived a long life, but in the end the only thing that reminds you of the good times you spent is <span class="hl">a well-taken photo.</span></p>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><b>88</b><span>Frames Archived</span></div>
+        <div class="stat"><b>05</b><span>Bodies of Work</span></div>
+        <div class="stat"><b>03</b><span>Events Covered</span></div>
+        <div class="stat"><b>12M</b><span>Months Shooting</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ============ GALLERY SECTIONS (injected) ============ -->
+<div id="sections"></div>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+<div class="wrap">
+  <div class="bevel brackets contact-panel rv">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Channel Open</div>
+        <div class="contact-cta">With great<br>photographer<br>comes <em>great photos</em></div>
+      </div>
+      <div class="links">
+        <a class="link" href="mailto:muktadiraohon@gmail.com">
+          <span class="k">Email</span><span class="v">muktadiraohon@gmail.com</span>
+        </a>
+        <a class="link" href="https://instagram.com/m_aohon_" target="_blank" rel="noopener">
+          <span class="k">Instagram</span><span class="v">@m_aohon_</span>
+        </a>
+        <a class="link" href="https://wa.me/601396428660">
+          <span class="k">WhatsApp</span><span class="v">0139642866</span>
+        </a>
+        <div class="link">
+          <span class="k">Status</span><span class="v" style="color:var(--amber)">AVAILABLE FOR BOOKING</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+  <div>© 2026 Muqtadir Aohon Mozumder</div>
+  <div>All frames shot &amp; graded by Muqtadir</div>
+  <div>END OF TRANSMISSION</div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb-bar top">
+    <span id="lbSet">—</span>
+    <span id="lbIdx">—</span>
+    <span class="lb-x" id="lbX">[ ESC · CLOSE ]</span>
+  </div>
+  <div class="lb-nav lb-prev" id="lbPrev">&#10094;</div>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-nav lb-next" id="lbNext">&#10095;</div>
+  <div class="lb-bar bot"><span id="lbFile">—</span></div>
+</div>
+
+<script>
+/* ============================================================
+   DATA — event sets. Filenames verified against disk.
+   ============================================================ */
+const SETS = [
+  {
+    id:'portraits',
+    ch:'CH.01',
+    dir:'portraits',
+    title:'Portraits',
+    blurb:'Why hide behind a perfect face when you can show your true self?',
+    files:['IMG_8441','IMG_8449','IMG_8451','IMG_8453','IMG_8455','IMG_8462','IMG_8464','IMG_8478','IMG_8490','IMG_8941','IMG_8942','IMG_8943','IMG_8944','IMG_8959','IMG_8960','IMG_8961','IMG_8962','IMG_8963','IMG_8964','IMG_8965','IMG_8966','IMG_8973','IMG_8974','IMG_8975','IMG_8988']
+  },
+  {
+    id:'icn',
+    ch:'CH.02',
+    dir:'icn',
+    title:'ICN',
+    blurb:'Covering an event like saving New York City — swinging fast to catch up with the moments before they are gone forever.',
+    files:['IMG_8933','IMG_8934','IMG_8935','IMG_8936','IMG_8937','IMG_8938','IMG_8939','IMG_8940','IMG_8967','IMG_8968','IMG_8969']
+  },
+  {
+    id:'ballers',
+    ch:'CH.03',
+    dir:'ballers',
+    title:'CCPC Ballers',
+    blurb:'Basketball event coverage. Fast glass, faster shutter — sport photography where the peak of the action is the only frame that matters.',
+    files:['IMG_8924','IMG_8925','IMG_8926','IMG_8927','IMG_8928','IMG_8929','IMG_8930','IMG_8932']
+  },
+  {
+    id:'booth',
+    ch:'CH.04',
+    dir:'booth',
+    title:'Co-Curricular Booth',
+    blurb:'Documenting a live booth day — people, setups, and the small in-between moments that make an event feel like it actually happened.',
+    files:['IMG_8945','IMG_8946','IMG_8947','IMG_8948','IMG_8949','IMG_8950','IMG_8951','IMG_8952','IMG_8953','IMG_8954','IMG_8955','IMG_8956','IMG_8957','IMG_8958']
+  },
+  {
+    id:'cinematic',
+    ch:'CH.05',
+    dir:'cinematic',
+    title:'Cinematic &amp; Atmospheric',
+    blurb:'Frames built like film stills — weather, haze, distance and colour doing the storytelling. Graded warm-cool, shot wide open.',
+    files:['IMG_8813','IMG_8815','IMG_8816','IMG_8817','IMG_8821','IMG_8822','IMG_8826','IMG_8827','IMG_8841','IMG_8842','IMG_8843','IMG_8844','IMG_8976','IMG_8977','IMG_8978','IMG_8979','IMG_8980','IMG_8981','IMG_8982','IMG_8983','IMG_8984','IMG_8985','IMG_8986','IMG_8987','IMG_8989','IMG_8991','IMG_8992','IMG_8993','IMG_8994','IMG_8995']
+  }
+];
+
+const EXT = '.JPG.jpeg';
+/* Web-optimised sets live in assets/. Originals are the fallback. */
+const enc = s => s.split('/').map(encodeURIComponent).join('/');
+const origPath  = (set,f) => enc('assets/full/' + set.dir + '/' + f + '.jpg');
+const fullPath  = (set,f) => enc('assets/full/'   + set.dir + '/' + f + '.jpg');
+const thumbPath = (set,f) => enc('assets/thumbs/' + set.dir + '/' + f + '.jpg');
+
+/* ---------- BUILD SECTIONS ---------- */
+const host = document.getElementById('sections');
+SETS.forEach((set, si) => {
+  const sec = document.createElement('section');
+  sec.className = 'sec';
+  sec.id = set.id;
+
+  const head = document.createElement('div');
+  head.className = 'wrap';
+  head.innerHTML =
+    '<div class="sec-head rv">' +
+      '<div class="sec-ch">' + set.ch + ' //</div>' +
+      '<h2 class="sec-title">' + set.title + '</h2>' +
+      '<div class="sec-meta">' + String(set.files.length).padStart(2,'0') + ' FRAMES</div>' +
+    '</div>' +
+    '<p class="sec-blurb rv">' + set.blurb + '</p>';
+
+  const grid = document.createElement('div');
+  grid.className = 'grid';
+
+  set.files.forEach((f, i) => {
+    const cell = document.createElement('figure');
+    cell.className = 'cell';
+    cell.tabIndex = 0;
+    cell.dataset.set = si;
+    cell.dataset.idx = i;
+
+    const img = document.createElement('img');
+    img.setAttribute('loading','lazy');
+    img.setAttribute('decoding','async');
+    img.alt = set.title.replace(/&amp;/g,'&') + ' — frame ' + (i+1);
+    img.src = thumbPath(set, f);
+    /* graceful fallback: optimised thumb -> original file */
+    img.dataset.fallback = origPath(set, f);
+    img.addEventListener('error', function onErr(){
+      if(this.dataset.tried) { this.closest('.cell').style.display='none'; return; }
+      this.dataset.tried = '1';
+      this.src = this.dataset.fallback;
+    });
+
+    const tag = document.createElement('figcaption');
+    tag.className = 'cell-tag';
+    tag.textContent = set.ch + ' · ' + String(i+1).padStart(3,'0') + ' / ' + String(set.files.length).padStart(3,'0');
+
+    cell.appendChild(img);
+    cell.appendChild(tag);
+    grid.appendChild(cell);
+  });
+
+  head.appendChild(grid);
+  sec.appendChild(head);
+  host.appendChild(sec);
+});
+
+/* ---------- LIGHTBOX ---------- */
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lbImg');
+const lbSet = document.getElementById('lbSet');
+const lbIdx = document.getElementById('lbIdx');
+const lbFile = document.getElementById('lbFile');
+let cs = 0, ci = 0;
+
+function show(s, i){
+  const set = SETS[s];
+  const n = set.files.length;
+  i = (i + n) % n;
+  cs = s; ci = i;
+  const f = set.files[i];
+  lbImg.src = fullPath(set, f);
+  lbImg.onerror = () => { lbImg.onerror = null; lbImg.src = origPath(set, f); };
+  lbImg.alt = set.title.replace(/&amp;/g,'&') + ' — frame ' + (i+1);
+  lbSet.innerHTML = set.ch + ' · ' + set.title;
+  lbIdx.textContent = String(i+1).padStart(3,'0') + ' / ' + String(n).padStart(3,'0');
+  lbFile.textContent = set.dir + ' / ' + f + EXT;
+  lb.classList.add('on');
+  document.body.style.overflow = 'hidden';
+}
+function close(){ lb.classList.remove('on'); lbImg.src=''; document.body.style.overflow=''; }
+
+document.addEventListener('click', e => {
+  const cell = e.target.closest('.cell');
+  if(cell){ show(+cell.dataset.set, +cell.dataset.idx); }
+});
+document.addEventListener('keydown', e => {
+  if(e.key === 'Enter'){
+    const cell = document.activeElement && document.activeElement.closest && document.activeElement.closest('.cell');
+    if(cell){ e.preventDefault(); show(+cell.dataset.set, +cell.dataset.idx); return; }
+  }
+  if(!lb.classList.contains('on')) return;
+  if(e.key === 'Escape') close();
+  if(e.key === 'ArrowRight') show(cs, ci+1);
+  if(e.key === 'ArrowLeft') show(cs, ci-1);
+});
+document.getElementById('lbX').addEventListener('click', close);
+document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); show(cs, ci+1); });
+document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); show(cs, ci-1); });
+lb.addEventListener('click', e => { if(e.target === lb || e.target === lbImg) close(); });
+
+/* ---------- PROFILE IMAGE FALLBACK ---------- */
+(function(){
+  const pi = document.getElementById('pimg');
+  const ps = document.getElementById('pscreen');
+  const alts = ['assets/profile.jpg','assets/profile.jpeg','profile.jpg','profile.jpeg'];
+  let a = 0;
+  pi.addEventListener('error', () => {
+    a++;
+    if(a < alts.length){ pi.src = alts[a]; }
+    else { ps.classList.add('err'); }
+  });
+})();
+
+/* ---------- REVEAL ON SCROLL ---------- */
+const io = new IntersectionObserver(es => {
+  es.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+}, {threshold:.06, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ---------- CLOCK ---------- */
+setInterval(() => {
+  const d = new Date();
+  document.getElementById('clock').textContent =
+    [d.getHours(), d.getMinutes(), d.getSeconds()].map(v => String(v).padStart(2,'0')).join(':');
+}, 1000);
+
+/* ---------- BOOT ---------- */
+(function(){
+  const boot = document.getElementById('boot');
+  const lines = [...document.querySelectorAll('.boot-line')];
+  lines.forEach((l, i) => setTimeout(() => l.classList.add('on'), 220 + i*300));
+  const end = () => boot.classList.add('done');
+  const t = setTimeout(end, 2600);
+  const skip = () => { clearTimeout(t); end(); };
+  window.addEventListener('keydown', skip, {once:true});
+  boot.addEventListener('click', skip, {once:true});
+})();
+</script>
+</body>
+</html>
