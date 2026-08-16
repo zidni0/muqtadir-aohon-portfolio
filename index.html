@@ -575,7 +575,7 @@ const SETS = [
     id:'cinematic',
     ch:'CH.05',
     dir:'cinematic',
-    title:'Cinematic &amp; Atmospheric',
+    title:'Cinematic & Atmospheric',
     blurb:'Frames built like film stills — weather, haze, distance and colour doing the storytelling. Graded warm-cool, shot wide open.',
     files:['IMG_8813','IMG_8815','IMG_8816','IMG_8817','IMG_8821','IMG_8822','IMG_8826','IMG_8827','IMG_8841','IMG_8842','IMG_8843','IMG_8844','IMG_8976','IMG_8977','IMG_8978','IMG_8979','IMG_8980','IMG_8981','IMG_8982','IMG_8983','IMG_8984','IMG_8985','IMG_8986','IMG_8987','IMG_8989','IMG_8991','IMG_8992','IMG_8993','IMG_8994','IMG_8995']
   }
@@ -596,13 +596,29 @@ SETS.forEach((set, si) => {
 
   const head = document.createElement('div');
   head.className = 'wrap';
-  head.innerHTML =
-    '<div class="sec-head rv">' +
-      '<div class="sec-ch">' + set.ch + ' //</div>' +
-      '<h2 class="sec-title">' + set.title + '</h2>' +
-      '<div class="sec-meta">' + String(set.files.length).padStart(2,'0') + ' FRAMES</div>' +
-    '</div>' +
-    '<p class="sec-blurb rv">' + set.blurb + '</p>';
+
+  const secHead = document.createElement('div');
+  secHead.className = 'sec-head rv';
+
+  const chapter = document.createElement('div');
+  chapter.className = 'sec-ch';
+  chapter.textContent = set.ch + ' //';
+
+  const title = document.createElement('h2');
+  title.className = 'sec-title';
+  title.textContent = set.title;
+
+  const meta = document.createElement('div');
+  meta.className = 'sec-meta';
+  meta.textContent = String(set.files.length).padStart(2,'0') + ' FRAMES';
+
+  secHead.append(chapter, title, meta);
+
+  const blurb = document.createElement('p');
+  blurb.className = 'sec-blurb rv';
+  blurb.textContent = set.blurb;
+
+  head.append(secHead, blurb);
 
   const grid = document.createElement('div');
   grid.className = 'grid';
@@ -613,14 +629,14 @@ SETS.forEach((set, si) => {
     cell.tabIndex = 0;
     cell.setAttribute('role','button');
     cell.setAttribute('aria-haspopup','dialog');
-    cell.setAttribute('aria-label','Open ' + set.title.replace(/&amp;/g,'&') + ' frame ' + (i+1));
+    cell.setAttribute('aria-label','Open ' + set.title + ' frame ' + (i+1));
     cell.dataset.set = si;
     cell.dataset.idx = i;
 
     const img = document.createElement('img');
     img.setAttribute('loading','lazy');
     img.setAttribute('decoding','async');
-    img.alt = set.title.replace(/&amp;/g,'&') + ' — frame ' + (i+1);
+    img.alt = set.title + ' — frame ' + (i+1);
     img.src = thumbPath(set, f);
     /* graceful fallback: optimised thumb -> original file */
     img.dataset.fallback = assetPath(set, f);
@@ -662,8 +678,8 @@ function show(s, i){
   cs = s; ci = i;
   const f = set.files[i];
   lbImg.src = assetPath(set, f);
-  lbImg.alt = set.title.replace(/&amp;/g,'&') + ' — frame ' + (i+1);
-  lbSet.textContent = set.ch + ' · ' + set.title.replace(/&amp;/g,'&');
+  lbImg.alt = set.title + ' — frame ' + (i+1);
+  lbSet.textContent = set.ch + ' · ' + set.title;
   lbIdx.textContent = String(i+1).padStart(3,'0') + ' / ' + String(n).padStart(3,'0');
   lbFile.textContent = fileLabel(set, f);
   if(!lb.classList.contains('on')) opener = document.activeElement;
